@@ -22,6 +22,7 @@ body::after{background-image:none}
 .public-lng-chart{height:290px;padding:22px 24px 16px;background:var(--color-surface-raised);border:1px solid var(--color-line-control);box-shadow:var(--shadow-low);display:grid;grid-template-rows:auto 1fr;gap:14px}
 .public-chart-key{display:flex;justify-content:flex-end;gap:18px;font:600 10px "IBM Plex Mono",monospace;color:var(--color-ink-muted)}
 .public-chart-key span{display:flex;align-items:center;gap:7px}
+.public-chart-key .chart-reading-key{margin-right:auto;color:var(--color-copper-deep)}
 .public-chart-key i{width:11px;height:11px;display:inline-block}
 .lng-key,.lng-bar{background:var(--color-teal)}
 .mgo-key,.mgo-bar{background:var(--color-ink-soft)}
@@ -118,4 +119,199 @@ body::after{background-image:none}
   .public-manifest-pane .compact-workflow .workflow-steps{grid-template-columns:1fr 1fr}
   .public-manifest-pane .compact-workflow .workflow-step{min-height:88px}
   .public-human-control{min-height:155px}
+}
+
+/* Mémoire — précisions académiques lisibles sans interaction. */
+#memory-economy .final-source{max-width:1280px;line-height:1.45}
+#memory-economy .economic-ledger span em{display:block;margin-top:2px;font-style:normal;color:var(--color-copper-deep)}
+
+#memory-externalities .territorial-acceptability{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr);
+  align-items:center;
+  gap:18px;
+  margin:0;
+  padding:10px 14px;
+  border-left:3px solid var(--color-gold);
+  background:color-mix(in srgb,var(--color-surface-copper) 62%,var(--color-surface-raised));
+  box-shadow:var(--shadow-low);
+  font-size:12px;
+  line-height:1.4;
+  color:var(--color-ink-soft)
+}
+#memory-externalities .territorial-acceptability span{
+  font:650 10px/1.3 "IBM Plex Mono",monospace;
+  letter-spacing:.08em;
+  color:var(--color-copper-deep)
+}
+#memory-externalities .nox-proof small{
+  display:block;
+  margin:0 0 7px;
+  font:650 10px/1.3 "IBM Plex Mono",monospace;
+  color:var(--color-danger)
+}
+#memory-externalities .nox-proof span{display:block}
+
+#memory-transition .transition-controls{display:grid;gap:8px;align-content:start}
+#memory-transition .transition-reading{align-self:stretch;align-content:stretch}
+#memory-transition .transition-reading>div{display:grid;align-content:center}
+#memory-transition .regulation-key{
+  margin:0;
+  border:1px solid var(--color-line);
+  border-left:3px solid var(--color-copper);
+  background:var(--color-surface-raised);
+  box-shadow:var(--shadow-low)
+}
+#memory-transition .regulation-key>div{
+  display:grid;
+  grid-template-columns:122px minmax(0,1fr);
+  gap:9px;
+  padding:7px 10px
+}
+#memory-transition .regulation-key>div+div{border-top:1px solid var(--color-line)}
+#memory-transition .regulation-key dt{
+  font:650 10px/1.35 "IBM Plex Mono",monospace;
+  color:var(--color-copper-deep)
+}
+#memory-transition .regulation-key dd{
+  margin:0;
+  font-size:11px;
+  line-height:1.35;
+  color:var(--color-ink-muted)
+}
+#memory-transition .cenaq-head{grid-row:1/3}
+#memory-transition .cenaq-notes{display:grid;gap:5px}
+#memory-transition .cenaq-notes p{margin:0;font-size:11px;line-height:1.35;color:var(--color-ink-muted)}
+#memory-transition .cenaq-notes .cenaq-limit{
+  padding:7px 9px;
+  border-left:3px solid var(--color-copper);
+  background:var(--color-surface-copper);
+  color:var(--color-ink-soft)
+}
+#memory-transition .cenaq-limit b{
+  margin-right:7px;
+  font:650 10px "IBM Plex Mono",monospace;
+  letter-spacing:.07em;
+  color:var(--color-copper-deep)
+}
+
+#memory-gnl .lng-layout{grid-template-rows:auto auto auto auto;gap:8px 3vw;align-content:center}
+#memory-gnl .lng-layout>header h2{font-size:clamp(35px,3vw,46px);max-width:850px}
+#memory-gnl .lng-contrast{gap:6px;align-self:stretch}
+#memory-gnl .lng-contrast button{min-height:0;padding:10px 13px}
+#memory-gnl .lng-contrast strong{margin:5px 0 2px;font-size:23px}
+#memory-gnl .lng-contrast span,#memory-gnl .lng-contrast b{font-size:11px;line-height:1.3}
+#memory-gnl .methane-definition{
+  padding:10px 12px;
+  border-left:3px solid var(--color-danger);
+  background:var(--color-surface-copper);
+  box-shadow:var(--shadow-low)
+}
+#memory-gnl .methane-definition strong{
+  display:block;
+  margin:0 0 3px;
+  font:560 19px/1.05 Newsreader,serif;
+  color:var(--color-ink-strong)
+}
+#memory-gnl .methane-definition p{
+  margin:0;
+  font-size:11px;
+  line-height:1.35;
+  color:var(--color-ink-soft)
+}
+#memory-gnl .methane-definition span{
+  display:block;
+  margin-top:5px;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.35;
+  color:var(--color-danger)
+}
+#memory-gnl .lng-detail{grid-column:auto;margin:0;padding:8px 10px;font-size:11px;line-height:1.35}
+#memory-gnl .lng-synthesis{
+  grid-column:1/-1;
+  margin:0;
+  padding:9px 13px;
+  border-left:3px solid var(--color-teal);
+  background:var(--color-surface-teal);
+  box-shadow:var(--shadow-low);
+  font:560 16px/1.35 Newsreader,serif;
+  color:var(--color-ink-strong)
+}
+
+#memory-answer .answer-layout{grid-template-columns:minmax(420px,.84fr) minmax(560px,1.16fr);grid-template-rows:auto auto auto auto auto;gap:10px 3vw}
+#memory-answer .answer-layout>header{grid-row:1/6}
+#memory-answer .answer-layout>header h2{font-size:clamp(56px,5.45vw,82px);line-height:.88;margin-bottom:18px}
+#memory-answer .answer-thesis{max-width:500px;font-size:15px;line-height:1.48}
+#memory-answer .answer-conditions button{min-height:138px}
+#memory-answer .answer-conditions strong{margin-top:12px}
+#memory-answer .answer-method-limit{
+  margin:0;
+  padding:9px 12px;
+  border:1px solid var(--color-line);
+  background:var(--color-surface-raised);
+  font-size:11px;
+  line-height:1.4;
+  color:var(--color-ink-muted)
+}
+#memory-answer .answer-method-limit span{
+  margin-right:8px;
+  font:650 10px "IBM Plex Mono",monospace;
+  letter-spacing:.07em;
+  color:var(--color-copper-deep)
+}
+#memory-answer .final-statement{padding:11px 14px}
+#memory-answer .final-statement span{
+  display:block;
+  margin:0 0 4px;
+  font:650 9px "IBM Plex Mono",monospace;
+  letter-spacing:.08em;
+  color:var(--color-teal-deep)
+}
+#memory-answer .final-statement strong{display:block;font-size:19px;line-height:1.25}
+
+.memory-slide.is-entering :is(.territorial-acceptability,.regulation-key,.methane-definition,.lng-synthesis,.answer-method-limit){
+  animation:memory-reveal 190ms var(--ease) both 35ms
+}
+#memory-gnl.is-entering .public-pair i{transform-origin:center bottom;animation:memory-bar-rise 185ms var(--ease) both 25ms}
+#memory-externalities.is-entering .territory-axis i{animation-duration:185ms;animation-delay:25ms}
+#memory-transition.is-entering .scenario-bars i{animation-duration:185ms;animation-delay:25ms}
+@keyframes memory-reveal{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes memory-bar-rise{from{transform:scaleY(0);opacity:.45}to{transform:scaleY(1);opacity:1}}
+
+@media(max-height:820px) and (min-width:900px){
+  #memory-externalities .externalities-layout{gap:9px 3vw}
+  #memory-externalities .territory-balance section,#memory-externalities .nox-proof{min-height:200px}
+  #memory-externalities .territorial-acceptability{padding-block:8px}
+  #memory-transition .transition-layout{gap:7px 3vw}
+  #memory-transition .transition-levers .lever{min-height:48px;padding-block:7px}
+  #memory-transition .regulation-key>div{padding-block:5px}
+  #memory-transition .transition-reading>div{padding:8px 10px}
+  #memory-transition .cenaq-case{padding:8px 11px;gap:7px 18px}
+  #memory-transition .cenaq-notes .cenaq-limit{padding-block:5px}
+  #memory-gnl .lng-layout>header h2{font-size:39px}
+  #memory-gnl .lng-contrast button{padding:8px 11px}
+  #memory-gnl .lng-contrast strong{font-size:20px}
+  #memory-gnl .methane-definition{padding:8px 10px}
+  #memory-gnl .lng-synthesis{padding-block:7px;font-size:15px}
+  #memory-answer .answer-layout>header h2{font-size:68px}
+  #memory-answer .answer-conditions button{min-height:126px;padding:10px}
+  #memory-answer .answer-thesis{font-size:14px}
+  #memory-answer .answer-method-limit{padding-block:7px}
+}
+
+@media(max-width:899px){
+  #memory-externalities .territorial-acceptability{grid-template-columns:1fr;gap:6px}
+  #memory-transition .regulation-key>div{grid-template-columns:1fr;gap:3px}
+  #memory-transition .cenaq-head{grid-row:auto}
+  #memory-gnl .lng-layout>header h2{font-size:36px}
+  #memory-answer .answer-layout{grid-template-columns:1fr;grid-template-rows:auto}
+  #memory-answer .answer-layout>header{grid-row:auto}
+  #memory-answer .answer-layout>header h2{font-size:54px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .memory-slide.is-entering :is(.territorial-acceptability,.regulation-key,.methane-definition,.lng-synthesis,.answer-method-limit),
+  #memory-gnl.is-entering .public-pair i{animation:none}
 }

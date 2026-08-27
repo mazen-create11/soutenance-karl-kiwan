@@ -14,7 +14,7 @@ const slideIdByTitle = {
   'Les bénéfices économiques': 'memory-economy',
   'Externalités et acceptabilité': 'memory-externalities',
   'Une transition déjà engagée': 'memory-transition',
-  'GNL et methane slip': 'memory-gnl',
+  'GNL : qualité de l’air et climat': 'memory-gnl',
   'Réponse à la problématique': 'memory-answer'
 };
 const slideIdsInOrder = [
@@ -161,56 +161,54 @@ const notesBySlideId = {
   },
   'memory-problem': {
     bullets: [
-      'Poser la tension : Marseille bénéficie de la croisière, mais certaines externalités affectent son acceptabilité territoriale.',
-      'Lire la problématique sans la reformuler ni l’allonger.',
-      'Annoncer le raisonnement : valeur économique, externalités, transition, limites et conditions de conciliation.'
+      'L’objectif n’est pas de déterminer si la croisière est simplement positive ou négative, mais de voir si les transformations environnementales actuelles peuvent permettre de conserver ses bénéfices économiques tout en réduisant suffisamment ses coûts territoriaux.'
     ],
     cue: 'Laisser la problématique visible une seconde avant de poursuivre.'
   },
   'memory-economy': {
     bullets: [
-      'En 2025, Marseille accueille environ 2,6 millions de croisiéristes.',
-      'Repères 2015 : environ 50 € dépensés à terre par un passager en transit et 160 € par un passager en tête de ligne.',
-      'Les 310 M€ correspondent à une étude de 2016 : les présenter uniquement comme un chiffre historique.',
-      'L’enjeu est aussi de capter les dépenses dans l’hôtellerie, la restauration, les transports et les excursions.'
+      'Les 2,6 millions de croisiéristes donnent l’échelle de l’activité en 2025.',
+      'Le point économique important est surtout le contraste entre environ 50 € pour un passager en transit et 160 € pour un passager en tête de ligne.',
+      'Un passager en tête de ligne embarque ou débarque à Marseille et peut utiliser les hôtels, la restauration et les transports.',
+      'Les 310 M€ sont uniquement un repère historique issu d’une étude de 2016, pas une estimation de 2026.'
     ],
-    cue: 'Comparer Transit et Tête de ligne, puis rappeler la date du chiffre de 310 M€.'
+    cue: 'Comparer les deux profils, puis rappeler immédiatement la date des 310 M€.'
   },
   'memory-externalities': {
     bullets: [
-      'Les retombées économiques peuvent se diffuser dans la métropole et la région.',
-      'À l’inverse, pollution atmosphérique, bruit, circulation et concentration des visiteurs restent plus localisés.',
-      'Les 54 % de NOx concernent tout le trafic maritime de Marseille en 2021, pas la seule croisière.',
-      'Ce décalage spatial fait apparaître la question de l’acceptabilité territoriale.'
+      'Les dépenses peuvent bénéficier à Marseille, à la métropole ou à la région.',
+      'Certaines nuisances sont davantage localisées autour du port et des axes de circulation.',
+      'Il peut donc exister un décalage spatial entre les territoires qui bénéficient de l’activité et ceux qui supportent davantage certaines nuisances.',
+      'Les 54 % de NOx concernent l’ensemble du trafic maritime, jamais la seule croisière.'
     ],
-    cue: 'Prononcer clairement la réserve « toutes activités maritimes confondues ».'
+    cue: 'Relier explicitement ce décalage spatial à l’acceptabilité territoriale.'
   },
   'memory-transition': {
     bullets: [
-      'Trois niveaux évoluent ensemble : réglementation, infrastructures portuaires et flotte.',
-      'CENAQ dépasse 200 M€ pour l’ensemble du programme et permet notamment trois grands navires raccordés simultanément.',
-      'Les scénarios 2025 indiquent −3,75 % de NOx sans électrification contre −33,5 % avec 60 % du temps d’escale électrifié.',
-      'Préciser qu’il s’agit de scénarios étudiés, pas de réductions déjà mesurées.'
+      'La transition fonctionne simultanément par la réglementation, les infrastructures portuaires et la transformation de la flotte.',
+      'CENAQ est particulièrement intéressant pour Marseille car il agit lorsque le navire est proche de la ville.',
+      'Les valeurs −3,75 % et −33,5 % sont des scénarios NOx, pas des résultats mesurés.',
+      'CENAQ ne traite que la phase d’escale ; il faut aussi transformer le navire et l’énergie utilisée en navigation.'
     ],
-    cue: 'Cliquer sur Infrastructure, puis opposer les deux scénarios sans surinterpréter.'
+    cue: 'Terminer sur la navigation pour introduire naturellement le GNL.'
   },
   'memory-gnl': {
     bullets: [
-      'Sur le navire étudié, le GNL réduit fortement la masse de particules et le carbone noir par rapport au gazole marin.',
-      'Distinguer qualité de l’air locale et bilan climatique en équivalent CO₂.',
-      'Le methane slip est du méthane non brûlé rejeté directement dans l’atmosphère.',
-      'À faible charge, ces rejets peuvent réduire ou annuler l’avantage climatique du GNL.'
+      'Le GNL est principalement composé de méthane. Normalement, ce méthane est brûlé dans le moteur pour produire de l’énergie. Mais une partie peut ne pas être totalement brûlée et être rejetée directement dans l’atmosphère : c’est le methane slip.',
+      'Comme le méthane est lui-même un puissant gaz à effet de serre, cela peut réduire l’avantage climatique du GNL, particulièrement à faible charge moteur.',
+      'Il faut donc distinguer la qualité de l’air, où le GNL peut apporter de fortes réductions de certains polluants, et le climat, où son bilan est plus nuancé.'
     ],
-    cue: 'Faire apparaître successivement Qualité de l’air puis Climat.'
+    cue: 'Rappeler que les pourcentages présentés concernent le navire étudié.'
   },
   'memory-answer': {
     bullets: [
-      'Réponse : oui, la transition peut améliorer la conciliation, mais elle ne garantit pas seule l’acceptabilité.',
-      'Condition 1 : les équipements et technologies doivent être réellement utilisés.',
-      'Condition 2 : les gains doivent produire une réduction absolue malgré l’évolution du trafic.',
-      'Condition 3 : gérer aussi les déplacements, les flux de passagers et les nuisances résiduelles.'
+      'Réponse : oui, mais sous conditions. La transition environnementale peut améliorer les conditions de conciliation sans garantir à elle seule l’acceptabilité.',
+      'Les équipements et technologies doivent réellement être utilisés.',
+      'Une baisse par navire ne suffit pas si l’augmentation du trafic annule les gains.',
+      'Il faut aussi gérer les déplacements, les flux de passagers et les nuisances résiduelles.',
+      'L’acceptabilité des habitants n’a pas été mesurée directement.'
     ],
-    cue: 'Conclure par les trois conditions, remercier, puis ouvrir les questions.'
+    cue: 'Conclure par l’ouverture sur les prochaines années, remercier, puis ouvrir les questions.'
   }
 };
 
@@ -246,14 +244,14 @@ const axisData = [
 
 const leverData = [
   {
-    effect: 'Agir sur les gaz à effet de serre, l’intensité carbone et les émissions de soufre.',
-    proof: 'EU ETS, FuelEU Maritime et zone méditerranéenne de contrôle des émissions de soufre.',
-    limit: 'Ces dispositifs ne ciblent pas les mêmes émissions ; leurs effets doivent être évalués séparément.'
+    effect: 'EU ETS : donner un coût aux émissions par la tarification du carbone.',
+    proof: 'FuelEU Maritime : réduire progressivement l’intensité en gaz à effet de serre de l’énergie utilisée.',
+    limit: 'SECA Méditerranée : renforcer la limite de soufre des combustibles.'
   },
   {
     effect: 'Couper les moteurs auxiliaires des navires pendant l’escale.',
-    proof: 'Budget total de CENAQ : plus de 200 M€ ; le programme ne concerne pas uniquement la croisière.',
-    limit: 'Le gain dépend de l’équipement du quai, du navire et de son usage réel.'
+    proof: 'Budget total de CENAQ : plus de 200 M€ ; jusqu’à trois grands navires raccordés simultanément.',
+    limit: 'CENAQ agit à quai ; il ne supprime pas les émissions de navigation ni de manœuvre.'
   },
   {
     effect: 'Réduire les émissions par la flotte, l’énergie et l’efficacité.',
@@ -468,7 +466,7 @@ function cancelSlideMotion() {
 }
 
 function focusSlideHeading(index) {
-  const heading = slides[index]?.querySelector('h1, h2');
+  const heading = slides[index]?.querySelector('h1, h2, [role="heading"]');
   if (!heading) return;
   heading.setAttribute('tabindex', '-1');
   heading.focus({ preventScroll: true });
@@ -765,11 +763,13 @@ function setLever(index, options = {}) {
   const data = leverData[Number(index)];
   if (!active || !data) return;
   updateTabSelection(buttons, active);
-  animateDetail(document.getElementById('leverDetail'), () => {
-    document.getElementById('leverDetail').innerHTML = `
+  const detail = document.getElementById('leverDetail');
+  if (active.id) detail?.setAttribute('aria-labelledby', active.id);
+  animateDetail(detail, () => {
+    detail.innerHTML = `
       <div><span>EFFET ATTENDU</span><strong>${data.effect}</strong></div>
       <div><span>POINT DOCUMENTÉ</span><strong>${data.proof}</strong></div>
-      <div><span>CONDITION DE RÉUSSITE</span><strong>${data.limit}</strong></div>`;
+      <div><span>LIMITE / PÉRIMÈTRE</span><strong>${data.limit}</strong></div>`;
   }, options.animate !== false);
 }
 
