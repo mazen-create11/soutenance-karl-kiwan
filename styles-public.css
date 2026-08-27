@@ -58,6 +58,7 @@ body::after{background-image:none}
 .public-safety-note{margin:12px 0 0;padding:11px 12px;border-left:3px solid var(--color-teal);background:var(--color-surface-teal);font-size:11px;line-height:1.45;color:var(--color-ink-soft)}
 .public-safety-note span{display:block;margin-bottom:4px;font:650 9px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--color-teal-deep)}
 .public-estimator-proof .tool-actions{margin-top:auto;padding-top:12px}
+.estimator-launch-link{display:flex;align-items:center;justify-content:center;text-decoration:none}
 .public-estimator-preview{align-self:stretch;height:auto;min-height:385px;border-radius:5px}
 .public-estimator-preview .demo-fallback{object-fit:contain;object-position:center top;background:var(--color-screen)}
 

@@ -139,7 +139,7 @@ const notesBySlideId = {
       'Pour une date et un navire, elle fournit un ordre de grandeur, une fourchette indicative et un besoin de rotations.',
       'La copie publique montre uniquement une synthèse visuelle ; l’application opérationnelle et le planning source ne sont pas diffusés.'
     ],
-    cue: 'Agrandir l’aperçu si nécessaire, puis rappeler qu’il s’agit d’une aide au dimensionnement et non d’une prévision certaine.'
+    cue: 'Cliquer sur « Ouvrir l’estimateur », montrer une seule simulation, puis revenir à la soutenance.'
   },
   'manifestes-automation': {
     bullets: [

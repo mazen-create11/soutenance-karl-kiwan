@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3f1eb">
+  <meta name="description" content="Démonstration publique de l’estimateur de navettes développé pendant le stage de Karl Kiwan.">
+  <title>Estimateur de navettes — démonstration</title>
+  <style>
+    @font-face{font-family:"Newsreader";src:url("assets/newsreader-variable.woff2") format("woff2");font-weight:300 800;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans";src:url("assets/ibm-plex-sans-400.woff2") format("woff2");font-weight:400;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans";src:url("assets/ibm-plex-sans-600.woff2") format("woff2");font-weight:600;font-display:swap}
+    @font-face{font-family:"IBM Plex Mono";src:url("assets/ibm-plex-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
+    :root{
+      --canvas:#f3f1eb;
+      --surface:#fbfaf6;
+      --raised:#fff;
+      --ink:#12343b;
+      --soft:#53686c;
+      --muted:#64777a;
+      --teal:#2f6d74;
+      --teal-deep:#214f56;
+      --teal-tint:#dfece9;
+      --copper:#98502d;
+      --copper-deep:#87431f;
+      --copper-tint:#f2e1d5;
+      --line:rgba(18,52,59,.17);
+      --line-strong:rgba(18,52,59,.3);
+      --screen:#0c2028;
+      --screen-2:#13313a;
+      --screen-text:#edf4f1;
+      --screen-muted:#a7bab9;
+      --shadow:0 26px 70px rgba(18,52,59,.12);
+      --radius:6px
+    }
+    *{box-sizing:border-box}
+    html{background:var(--canvas);color:var(--ink);font-family:"IBM Plex Sans",sans-serif}
+    body{min-height:100vh;margin:0;background:
+      radial-gradient(circle at 86% 8%,rgba(47,109,116,.13),transparent 28rem),
+      linear-gradient(145deg,var(--surface),var(--canvas) 68%);overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.8;background-image:
+      linear-gradient(rgba(18,52,59,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(18,52,59,.035) 1px,transparent 1px);
+      background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+    body::after{content:"";position:fixed;width:620px;height:620px;left:-310px;bottom:-410px;border:1px solid rgba(47,109,116,.12);border-radius:50%;box-shadow:0 0 0 78px rgba(47,109,116,.035),0 0 0 156px rgba(47,109,116,.025);pointer-events:none}
+    button,input,a{font:inherit}
+    button,a{touch-action:manipulation}
+    button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #b96f47;outline-offset:3px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip{position:fixed;z-index:10;left:16px;top:-60px;padding:10px 14px;background:var(--screen);color:white}.skip:focus{top:16px}
+    .topbar{position:relative;z-index:2;height:70px;padding:0 clamp(20px,4vw,64px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.84);backdrop-filter:blur(15px)}
+    .brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--ink)}
+    .brand-mark{display:grid;gap:4px;width:26px}.brand-mark i{height:2px;background:var(--teal)}.brand-mark i:nth-child(2){width:72%;background:var(--copper)}.brand-mark i:nth-child(3){width:45%;background:#7d5720}
+    .brand strong,.brand small{display:block}.brand strong{font:600 12px "IBM Plex Sans",sans-serif;letter-spacing:.17em}.brand small{margin-top:2px;font:500 9px "IBM Plex Mono",monospace;letter-spacing:.09em;color:var(--soft)}
+    .top-actions{display:flex;align-items:center;gap:9px}
+    .status{padding:8px 11px;border:1px solid var(--teal);background:var(--teal-tint);font:500 9px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--teal-deep)}
+    .top-action{min-height:44px;padding:0 13px;border:1px solid var(--line-strong);background:var(--raised);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:transform .18s ease,background .18s ease}
+    .top-action:hover{transform:translateY(-2px);background:var(--teal-tint)}
+    main{position:relative;z-index:1;width:min(1420px,92vw);margin:0 auto;padding:clamp(28px,4.5vh,58px) 0 34px}
+    .intro{display:grid;grid-template-columns:minmax(300px,.7fr) minmax(520px,1.3fr);gap:4vw;align-items:end;margin-bottom:24px}
+    .eyebrow{margin:0 0 12px;font:500 10px "IBM Plex Mono",monospace;letter-spacing:.12em;color:var(--copper-deep);text-transform:uppercase}
+    h1{max-width:720px;margin:0;font:560 clamp(43px,4.6vw,70px)/.95 "Newsreader",serif;letter-spacing:-.04em}
+    .intro-copy{margin:0 0 4px;padding:13px 0 13px 22px;border-left:2px solid var(--copper);font-size:14px;line-height:1.6;color:var(--soft)}
+    .workspace{display:grid;grid-template-columns:minmax(430px,.82fr) minmax(560px,1.18fr);min-height:570px;border-top:3px solid var(--copper);background:var(--raised);box-shadow:var(--shadow)}
+    .controls{padding:clamp(22px,2.6vw,38px);border-right:1px solid var(--line)}
+    .panel-heading{display:flex;justify-content:space-between;align-items:end;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+    .panel-heading span{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.11em;color:var(--copper-deep)}
+    .panel-heading strong{font:560 25px "Newsreader",serif}
+    .segments{display:grid;gap:8px;margin:18px 0;padding:0;border:0}
+    .segment{position:relative;display:grid;grid-template-columns:46px minmax(0,1fr) 115px;grid-template-rows:auto auto;align-items:center;column-gap:12px;min-height:86px;padding:12px 13px;border:1px solid var(--line);background:var(--surface);transition:border .18s ease,transform .18s ease,background .18s ease}
+    .segment:focus-within{border-color:var(--teal);background:var(--teal-tint);transform:translateX(3px)}
+    .segment-index{grid-row:1/3;font:560 28px "Newsreader",serif;color:var(--copper)}
+    .segment strong{font-size:14px}.segment small{align-self:start;font-size:10px;color:var(--muted)}
+    .segment input{grid-column:3;grid-row:1/3;width:100%;height:46px;padding:0 10px;border:1px solid var(--line-strong);border-radius:2px;background:white;color:var(--ink);font:560 22px "Newsreader",serif;text-align:right}
+    .segment input[aria-invalid="true"],.capacity input[aria-invalid="true"]{border-color:var(--copper);background:var(--copper-tint)}
+    .segment input::-webkit-inner-spin-button{opacity:1}
+    .settings{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:10px;align-items:end;margin-top:14px}
+    .presets{display:flex;flex-wrap:wrap;gap:6px}
+    .presets button{min-height:44px;padding:0 11px;border:1px solid var(--line-strong);background:transparent;color:var(--soft);font:500 9px "IBM Plex Mono",monospace;letter-spacing:.04em;cursor:pointer}
+    .presets button:hover{background:var(--copper-tint);border-color:var(--copper);color:var(--copper-deep)}
+    .capacity{display:grid;gap:5px}.capacity span{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.05em;color:var(--muted)}.capacity input{height:44px;padding:0 10px;border:1px solid var(--line-strong);background:white;color:var(--ink);font-weight:600}
+    .input-status{min-height:16px;margin:8px 0 0;color:var(--copper-deep);font-size:10px}
+    .method-note{margin:18px 0 0;padding:12px 13px;border-left:3px solid var(--teal);background:var(--teal-tint);font-size:11px;line-height:1.5;color:var(--soft)}
+    .method-note strong{display:block;margin-bottom:4px;font:500 9px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--teal-deep)}
+    .results{position:relative;overflow:hidden;padding:clamp(24px,3vw,42px);background:var(--screen);color:var(--screen-text)}
+    .results::before{content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 90% 10%,rgba(47,109,116,.35),transparent 31%),
+      repeating-linear-gradient(135deg,transparent 0 35px,rgba(255,255,255,.017) 36px 37px)}
+    .results>*{position:relative}
+    .results-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.13)}
+    .results-head span{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.1em;color:#d5a487}.live-dot{display:flex;align-items:center;gap:7px}.live-dot i{width:7px;height:7px;border-radius:50%;background:#69afb0;box-shadow:0 0 0 5px rgba(105,175,176,.12)}
+    .hero-result{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center;padding:20px 0}
+    .gauge{position:relative;width:210px;height:210px;display:grid;place-items:center}
+    .gauge svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+    .gauge circle{fill:none;stroke-width:7}.gauge .track{stroke:rgba(255,255,255,.10)}.gauge .value{stroke:#72b9ba;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--gauge,0));transition:stroke-dashoffset .42s cubic-bezier(.2,.8,.2,1)}
+    .gauge-copy{text-align:center}.gauge-copy span{display:block;font:500 9px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--screen-muted)}.gauge-copy strong{display:block;margin:8px 0 2px;font:560 58px/1 "Newsreader",serif}.gauge-copy small{font-size:10px;color:var(--screen-muted)}
+    .result-copy>span{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.1em;color:#d5a487}.result-copy output{display:block;margin:7px 0 3px;font:560 clamp(60px,6vw,92px)/.85 "Newsreader",serif;letter-spacing:-.04em}.result-copy p{margin:0;color:var(--screen-muted);font-size:12px}.result-copy p strong{color:var(--screen-text);font-weight:600}
+    .indicators{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}
+    .indicator{min-height:92px;padding:13px 14px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.035)}
+    .indicator span{display:block;font:500 9px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--screen-muted)}.indicator output{display:block;margin:8px 0 2px;font:560 29px/1 "Newsreader",serif}.indicator small{font-size:10px;color:var(--screen-muted)}
+    .composition{padding-top:14px;border-top:1px solid rgba(255,255,255,.13)}
+    .composition-title{display:flex;justify-content:space-between;margin-bottom:11px;font:500 9px "IBM Plex Mono",monospace;letter-spacing:.07em;color:var(--screen-muted)}
+    .bar{display:grid;grid-template-columns:92px minmax(0,1fr) 56px;gap:9px;align-items:center;margin:8px 0}.bar span{font-size:10px;color:var(--screen-muted)}.bar i{height:8px;background:rgba(255,255,255,.1);overflow:hidden}.bar i::after{content:"";display:block;width:var(--bar,0%);height:100%;background:var(--bar-color,#72b9ba);transition:width .42s cubic-bezier(.2,.8,.2,1)}.bar output{text-align:right;font:500 10px "IBM Plex Mono",monospace}
+    .formula{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;padding:11px 12px;border-left:3px solid var(--copper);background:rgba(152,80,45,.15);font-size:10px;color:var(--screen-muted)}
+    .formula strong{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.06em;color:#e5b397}.formula span{text-align:right}
+    .footer{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;padding:18px 0 0;color:var(--soft);font-size:10px;line-height:1.5}
+    .footer p{max-width:980px;margin:0}.footer a{white-space:nowrap;color:var(--teal-deep);font-weight:600}
+    @media(max-height:820px) and (min-width:901px){
+      .topbar{height:58px}main{padding:24px 0}.intro{margin-bottom:16px}.intro h1{font-size:49px}.workspace{min-height:510px}.controls,.results{padding:22px}.segment{min-height:73px}.hero-result{grid-template-columns:180px 1fr;padding:14px 0}.gauge{width:175px;height:175px}.gauge-copy strong{font-size:48px}.result-copy output{font-size:68px}.indicator{min-height:78px}.formula{margin-top:12px}
+    }
+    @media(max-width:900px){
+      .topbar{height:auto;min-height:66px;padding:10px 5vw}.status{display:none}.top-action[data-fullscreen]{display:none}
+      main{width:90vw}.intro{grid-template-columns:1fr;gap:18px}.intro-copy{padding-left:15px}.workspace{grid-template-columns:1fr}.controls{border-right:0;border-bottom:1px solid var(--line)}.hero-result{grid-template-columns:190px 1fr}
+    }
+    @media(max-width:590px){
+      .brand small{display:none}.top-action{padding-inline:9px;font-size:11px}main{padding-top:22px}.intro h1{font-size:43px}.workspace{margin-inline:-2.5vw}.controls,.results{padding:20px 16px}.panel-heading strong{font-size:22px}.segment{grid-template-columns:35px minmax(0,1fr) 92px;padding-inline:9px}.segment input{font-size:19px}.settings{grid-template-columns:1fr}.hero-result{grid-template-columns:1fr;text-align:center}.gauge{margin:auto}.result-copy{text-align:center}.indicators{grid-template-columns:1fr}.formula{display:block}.formula span{display:block;margin-top:6px;text-align:left}.footer{display:block}.footer a{display:inline-block;margin-top:12px}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#estimateur">Aller à l’estimateur</a>
+  <header class="topbar">
+    <a class="brand" href="index.html#navettes-estimator" aria-label="Retour à la soutenance, mission 2">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><strong>KARL KIWAN</strong><small>SOUTENANCE · MPC</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="status">DÉMONSTRATION PUBLIQUE</span>
+      <button class="top-action" type="button" data-fullscreen>Passer en plein écran</button>
+      <a class="top-action" href="index.html#navettes-estimator">Retour à la soutenance</a>
+    </div>
+  </header>
+
+  <main id="estimateur">
+    <div class="intro">
+      <div>
+        <p class="eyebrow">Mission 02 · Estimateur de navettes</p>
+        <h1>Tester le modèle,<br>sans ouvrir R.</h1>
+      </div>
+      <p class="intro-copy">Simulation indicative pour les navettes payantes entre le môle Léon Gourret et la Gare Maritime Major. La démonstration applique la version opérationnelle du modèle sans charger le planning ni aucune donnée d’escale.</p>
+    </div>
+
+    <div class="workspace">
+      <section class="controls" aria-labelledby="inputTitle">
+        <div class="panel-heading"><span>01 · DONNÉES D’ENTRÉE</span><strong id="inputTitle">Passagers en transit</strong></div>
+        <fieldset class="segments">
+          <legend class="sr-only">Passagers en transit prévus pour l’escale, répartis par segment commercial</legend>
+          <label class="segment">
+            <span class="segment-index">01</span><strong>Mass market</strong><small>coefficient opérationnel · 31,11 %</small>
+            <input id="massInput" data-segment="mass" type="number" min="0" max="50000" step="50" value="2200" inputmode="numeric" aria-label="Passagers mass market en transit" aria-describedby="inputStatus">
+          </label>
+          <label class="segment">
+            <span class="segment-index">02</span><strong>Premium</strong><small>coefficient opérationnel · 52,39 %</small>
+            <input id="premiumInput" data-segment="premium" type="number" min="0" max="50000" step="50" value="800" inputmode="numeric" aria-label="Passagers premium en transit" aria-describedby="inputStatus">
+          </label>
+          <label class="segment">
+            <span class="segment-index">03</span><strong>Luxe</strong><small>coefficient opérationnel · 42,91 %</small>
+            <input id="luxuryInput" data-segment="luxury" type="number" min="0" max="50000" step="50" value="300" inputmode="numeric" aria-label="Passagers luxe en transit" aria-describedby="inputStatus">
+          </label>
+        </fieldset>
+        <div class="settings">
+          <div class="presets" aria-label="Exemples rapides">
+            <button type="button" data-preset="mixed">Exemple mixte</button>
+            <button type="button" data-preset="mass">Mass market</button>
+            <button type="button" data-preset="reset">Remettre à zéro</button>
+          </div>
+          <label class="capacity"><span>CAPACITÉ PAR VÉHICULE</span><input id="capacityInput" type="number" min="10" max="100" step="1" value="50" inputmode="numeric" aria-describedby="inputStatus"></label>
+        </div>
+        <p class="input-status" id="inputStatus" role="status" aria-live="polite"></p>
+        <p class="method-note"><strong>PÉRIMÈTRE DE LA DÉMO</strong> Régression sans constante calibrée sur neuf observations. Le modèle porte sur les sorties vers la ville ; la page ne contient ni planning, ni nom de navire, ni donnée d’escale.</p>
+      </section>
+
+      <section class="results" aria-labelledby="resultTitle">
+        <div class="results-head"><span id="resultTitle">02 · RÉSULTAT DU MODÈLE</span><span class="live-dot"><i aria-hidden="true"></i>CALCUL EN DIRECT</span></div>
+        <div class="hero-result">
+          <div class="gauge" id="usageGauge" style="--gauge:0">
+            <svg viewBox="0 0 42 42" aria-hidden="true"><circle class="track" cx="21" cy="21" r="15.9155"></circle><circle class="value" cx="21" cy="21" r="15.9155" pathLength="100"></circle></svg>
+            <div class="gauge-copy"><span>TAUX ESTIMÉ</span><strong id="usageRate">0 %</strong><small>du total saisi</small></div>
+          </div>
+          <div class="result-copy" aria-live="polite">
+            <span>PASSAGERS UTILISANT LES NAVETTES · ESTIMATION</span>
+            <output id="estimatedOutput">0</output>
+            <p>Fourchette indicative : <strong id="rangeOutput">0 à 0</strong></p>
+          </div>
+        </div>
+        <div class="indicators">
+          <div class="indicator"><span>PASSAGERS EN TRANSIT SAISIS</span><output id="totalOutput">0</output><small>tous segments confondus</small></div>
+          <div class="indicator"><span>ÉQUIVALENTS VÉHICULES</span><output id="vehiclesOutput">0</output><small id="vehiclesLabel">à 50 places · calcul volumétrique</small></div>
+        </div>
+        <div class="composition">
+          <div class="composition-title"><span>CONTRIBUTION À L’ESTIMATION</span><span>PASSAGERS</span></div>
+          <div class="bar"><span>Mass market</span><i id="massBar" style="--bar-color:#72b9ba"></i><output id="massOutput">0</output></div>
+          <div class="bar"><span>Premium</span><i id="premiumBar" style="--bar-color:#d5a487"></i><output id="premiumOutput">0</output></div>
+          <div class="bar"><span>Luxe</span><i id="luxuryBar" style="--bar-color:#a6c0a9"></i><output id="luxuryOutput">0</output></div>
+        </div>
+        <div class="formula"><strong>VERSION OPÉRATIONNELLE DU STAGE</strong><span>0,3111 × Mass market + 0,5239 × Premium + 0,4291 × Luxe</span></div>
+      </section>
+    </div>
+    <footer class="footer">
+      <p>Fourchette indicative calculée à partir des erreurs-types déclarées dans l’outil opérationnel : ce repère ne constitue ni un intervalle de confiance ni un intervalle de prédiction individuel. Le segment luxe reste à interpréter avec prudence. RMSE de la reproduction R : ≈ 439 sur l’échantillon et ≈ 678 en validation par retrait successif ; ces valeurs ne sont pas intégrées à la fourchette. La reproduction finale sous R présentée dans la soutenance utilise 30,69 %, 52,46 % et 42,86 %.</p>
+      <a href="index.html#navettes-estimator">← Revenir à la mission 02</a>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const model = {
+        mass: { rate: 0.3111, se: 0.021 },
+        premium: { rate: 0.5239, se: 0.035 },
+        luxury: { rate: 0.4291, se: 0.042 }
+      };
+      const formatter = new Intl.NumberFormat('fr-FR');
+      const inputs = [...document.querySelectorAll('[data-segment]')];
+      const capacityInput = document.getElementById('capacityInput');
+      const inputStatus = document.getElementById('inputStatus');
+      const output = {
+        estimated: document.getElementById('estimatedOutput'),
+        range: document.getElementById('rangeOutput'),
+        total: document.getElementById('totalOutput'),
+        vehicles: document.getElementById('vehiclesOutput'),
+        vehiclesLabel: document.getElementById('vehiclesLabel'),
+        usageRate: document.getElementById('usageRate'),
+        gauge: document.getElementById('usageGauge')
+      };
+
+      const safeInteger = (value, minimum = 0, maximum = 50000) => {
+        const number = Number(value);
+        return Number.isFinite(number) ? Math.min(maximum, Math.max(minimum, Math.round(number))) : minimum;
+      };
+
+      function update() {
+        let totalPassengers = 0;
+        let totalEstimatedExact = 0;
+        let totalMinimumExact = 0;
+        let totalMaximumExact = 0;
+        let invalidCount = 0;
+        const contributions = {};
+
+        inputs.forEach(input => {
+          const raw = Number(input.value);
+          const invalid = input.value === '' || !Number.isFinite(raw) || raw < 0 || raw > 50000;
+          input.setAttribute('aria-invalid', String(invalid));
+          if (invalid) invalidCount += 1;
+          const passengers = safeInteger(input.value);
+          const segment = input.dataset.segment;
+          const { rate, se } = model[segment];
+          const estimate = passengers * rate;
+          const margin = 1.96 * se * passengers;
+          contributions[segment] = estimate;
+          totalPassengers += passengers;
+          totalEstimatedExact += estimate;
+          totalMinimumExact += Math.max(0, estimate - margin);
+          totalMaximumExact += Math.min(passengers, estimate + margin);
+        });
+
+        const capacityRaw = Number(capacityInput.value);
+        const capacityInvalid = capacityInput.value === '' || !Number.isFinite(capacityRaw) || capacityRaw < 10 || capacityRaw > 100;
+        capacityInput.setAttribute('aria-invalid', String(capacityInvalid));
+        if (capacityInvalid) invalidCount += 1;
+        const capacity = safeInteger(capacityInput.value, 10, 100);
+        const totalEstimated = Math.round(totalEstimatedExact);
+        const totalMinimum = Math.round(totalMinimumExact);
+        const totalMaximum = Math.round(totalMaximumExact);
+        const vehicles = totalEstimated ? Math.ceil(totalEstimated / capacity) : 0;
+        const usageRate = totalPassengers ? totalEstimated / totalPassengers * 100 : 0;
+        const largestContribution = Math.max(1, ...Object.values(contributions));
+
+        output.estimated.value = formatter.format(totalEstimated);
+        output.range.textContent = `${formatter.format(totalMinimum)} à ${formatter.format(totalMaximum)}`;
+        output.total.value = formatter.format(totalPassengers);
+        output.vehicles.value = formatter.format(vehicles);
+        output.vehiclesLabel.textContent = `à ${capacity} places · calcul volumétrique`;
+        output.usageRate.textContent = `${usageRate.toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %`;
+        output.gauge.style.setProperty('--gauge', String(Math.min(100, Math.max(0, usageRate))));
+
+        for (const segment of Object.keys(model)) {
+          document.getElementById(`${segment}Output`).value = formatter.format(Math.round(contributions[segment]));
+          document.getElementById(`${segment}Bar`).style.setProperty('--bar', `${contributions[segment] / largestContribution * 100}%`);
+        }
+        inputStatus.textContent = invalidCount ? 'Une ou plusieurs valeurs sont hors limites ; le calcul utilise la borne valide la plus proche.' : '';
+      }
+
+      const presets = {
+        mixed: { mass: 2200, premium: 800, luxury: 300 },
+        mass: { mass: 3300, premium: 0, luxury: 0 },
+        reset: { mass: 0, premium: 0, luxury: 0 }
+      };
+
+      document.querySelectorAll('[data-preset]').forEach(button => {
+        button.addEventListener('click', () => {
+          const values = presets[button.dataset.preset];
+          inputs.forEach(input => { input.value = values[input.dataset.segment]; });
+          update();
+          inputs[0].focus();
+        });
+      });
+      inputs.forEach(input => input.addEventListener('input', update));
+      capacityInput.addEventListener('input', update);
+      document.querySelector('[data-fullscreen]').addEventListener('click', async event => {
+        const button = event.currentTarget;
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+        else await document.exitFullscreen?.();
+        button.textContent = document.fullscreenElement ? 'Quitter le plein écran' : 'Passer en plein écran';
+      });
+      document.addEventListener('fullscreenchange', () => {
+        const button = document.querySelector('[data-fullscreen]');
+        button.textContent = document.fullscreenElement ? 'Quitter le plein écran' : 'Passer en plein écran';
+      });
+      update();
+    })();
+  </script>
+</body>
+</html>
