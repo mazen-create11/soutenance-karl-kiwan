@@ -1,4 +1,5 @@
 .public-evidence-sheet{padding:8px}
+body::after{background-image:none}
 .public-count-sheet{height:330px;padding:24px;background:linear-gradient(145deg,#fffdf8,#eef1ed);color:var(--color-ink);display:grid;grid-template-rows:auto 1fr auto;gap:18px;border:1px solid var(--color-line-control)}
 .public-sheet-heading{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--color-teal-deep);padding-bottom:12px}
 .public-sheet-heading small,.public-count-sheet p{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--color-ink-muted)}
@@ -16,7 +17,7 @@
 .resource-card.is-static{grid-template-columns:52px 1fr;cursor:default}
 .resource-card.is-static:hover{transform:none;background:var(--color-surface-raised);border-color:var(--color-line)}
 .resource-card.is-static .file-icon{font-size:8px;letter-spacing:.05em}
-.modal{pointer-events:none}.modal.is-open{pointer-events:auto}
+.modal{pointer-events:none;transition:opacity .22s}.modal.is-open{pointer-events:auto}
 
 .public-lng-chart{height:290px;padding:22px 24px 16px;background:var(--color-surface-raised);border:1px solid var(--color-line-control);box-shadow:var(--shadow-low);display:grid;grid-template-rows:auto 1fr;gap:14px}
 .public-chart-key{display:flex;justify-content:flex-end;gap:18px;font:600 10px "IBM Plex Mono",monospace;color:var(--color-ink-muted)}
