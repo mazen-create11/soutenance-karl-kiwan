@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e9e4da">
+  <title>Console présentateur — Karl Kiwan</title>
+  <link rel="stylesheet" href="presenter.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span><i></i><i></i><i></i></span><div><strong>KARL KIWAN</strong><small>CONSOLE PRÉSENTATEUR</small></div></div>
+    <div class="connection" id="connection"><i></i> En attente de la présentation…</div>
+  </header>
+
+  <main>
+    <section class="clock-panel">
+      <div class="clock" id="mainClock">00:00</div>
+      <div class="target" id="targetClock">OBJECTIF 16:30 · REPÈRES 14:50</div>
+      <div class="section-clock"><span>SECTION</span><strong id="sectionClock">00:00</strong></div>
+    </section>
+
+    <section class="current-panel">
+      <div class="current-meta"><span id="currentSection">INTRODUCTION</span><b id="currentCount">01 / 15</b><small id="currentDuration">00:15 recommandé</small></div>
+      <h1 id="currentTitle">Rapport de stage et mémoire</h1>
+      <div class="notes" id="currentNotes"><p>Ouvrez cette console depuis la présentation principale.</p></div>
+      <div class="cue" id="currentCue"></div>
+    </section>
+
+    <aside class="next-panel">
+      <small>PROCHAINE FICHE</small>
+      <strong id="nextTitle">MPC, interface port-territoire</strong>
+      <div class="controls">
+        <button type="button" data-command="prev">← Précédent</button>
+        <button type="button" class="timer-control" data-command="timer" id="timerControl">Reprendre</button>
+        <button type="button" class="next-control" data-command="next">Suivant →</button>
+      </div>
+      <p>Raccourcis : ← / → · Espace · P pour fermer cette console.</p>
+    </aside>
+  </main>
+
+  <script src="presenter.js"></script>
+</body>
+</html>

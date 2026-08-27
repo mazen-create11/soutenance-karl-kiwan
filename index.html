@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3f1eb">
+  <meta name="description" content="Version publique de la soutenance interactive de Karl Kiwan — Marseille Provence Croisière">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Soutenance de Karl Kiwan">
+  <meta property="og:description" content="Rapport de stage et mémoire — version publique interactive.">
+  <meta property="og:url" content="https://mazen-create11.github.io/soutenance-karl-kiwan/">
+  <meta property="og:image" content="https://mazen-create11.github.io/soutenance-karl-kiwan/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Soutenance — Karl Kiwan</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-v2.css">
+  <link rel="stylesheet" href="styles-final.css">
+  <link rel="stylesheet" href="styles-light.css">
+  <link rel="stylesheet" href="styles-public.css">
+</head>
+<body>
+  <a class="skip-link" href="#slides">Aller à la présentation</a>
+
+  <div class="app" id="app">
+    <header class="topbar" aria-label="Contrôles de présentation">
+      <button class="brand" type="button" data-action="home" aria-label="KARL KIWAN — RAPPORT &amp; MÉMOIRE · MPC — retour à la couverture">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>KARL KIWAN</strong><small>RAPPORT &amp; MÉMOIRE · MPC</small></span>
+      </button>
+
+      <div class="route-progress" id="routeProgress" aria-label="Progression de la soutenance"></div>
+
+      <div class="top-actions">
+        <button class="timer" id="timerButton" type="button" aria-label="Chronomètre 00:00 / 16:30 — démarrer">
+          <span class="timer-status" aria-hidden="true"></span>
+          <span id="timerValue">00:00</span>
+          <small id="timerTarget">/ 16:30</small>
+        </button>
+        <button class="icon-button" type="button" data-action="notes" aria-label="Afficher les notes orales" title="Notes (N)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6zM14 3v4h4M9 11h6M9 15h6"/></svg>
+        </button>
+        <button class="icon-button" type="button" data-action="resources" aria-label="Ouvrir le dossier public" title="Dossier public (R)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h7l2 2h9v11H3zM8 12h8M8 15h5"/></svg>
+        </button>
+        <button class="icon-button" type="button" data-action="presenter" aria-label="Ouvrir la console présentateur" title="Console présentateur (P)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M8 9l3 2 5-4"/></svg>
+        </button>
+        <button class="icon-button" type="button" data-action="overview" aria-label="Afficher toutes les slides" title="Vue d’ensemble (O)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </button>
+        <button class="icon-button" type="button" data-action="fullscreen" aria-label="Passer en plein écran" title="Plein écran (F)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+        </button>
+        <button class="icon-button" type="button" data-action="help" aria-label="Afficher l’aide clavier" title="Aide (?)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.5 2.5 0 1 1 3.2 2.4c-.9.4-.9 1.1-.9 1.8M12 17h.01"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="slides" id="slides" tabindex="-1">
+      <section class="slide is-active intro-slide" id="cover" data-slide-id="cover" data-section="Introduction" data-title="Rapport de stage et mémoire" data-duration="0:15" aria-hidden="false">
+        <div class="cover-image" aria-hidden="true"></div>
+        <div class="intro-wash" aria-hidden="true"></div>
+        <div class="slide-inner intro-content">
+          <p class="eyebrow">Soutenance · version publique · 2026</p>
+          <h1>Rapport de stage<br>et mémoire.</h1>
+          <p class="intro-lead">Stage au sein de Marseille Provence Croisière.</p>
+          <div class="intro-meta">
+            <div><small>PRÉSENTÉ PAR</small><strong>Karl Kiwan</strong></div>
+            <div><small>ÉTABLISSEMENT</small><strong>Université de Toulon</strong></div>
+          </div>
+          <button class="primary-button magnetic" type="button" data-action="start">
+            Commencer la soutenance
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+          </button>
+        </div>
+        <div class="coordinate-stamp" aria-hidden="true">MARSEILLE PROVENCE CROISIÈRE<br>KARL KIWAN</div>
+      </section>
+
+      <section class="slide structure-slide final-mpc-slide" id="mpc-interface" data-slide-id="mpc-interface" data-section="Structure d’accueil" data-title="MPC, interface port-territoire" data-duration="0:45" aria-hidden="true">
+        <div class="section-tab structure-tab">01 · STRUCTURE D’ACCUEIL <span>MPC</span></div>
+        <div class="slide-inner final-mpc-layout">
+          <header class="final-mpc-heading">
+            <p class="eyebrow">Marseille Provence Croisière</p>
+            <h2>MPC relie l’activité portuaire au territoire.</h2>
+            <p>Association créée en 1996, MPC fédère les acteurs de la croisière maritime et fluviale en Provence.</p>
+          </header>
+          <div class="mpc-final-stats" role="tablist" aria-label="Chiffres clés de MPC">
+            <button type="button" class="is-active" data-mpc-stat="1996"><strong>1996</strong><span>création</span></button>
+            <button type="button" data-mpc-stat="members"><strong>&gt; 85</strong><span>adhérents</span></button>
+            <button type="button" data-mpc-stat="passengers"><strong>≈ 2,6 M</strong><span>croisiéristes en 2025</span></button>
+            <button type="button" data-mpc-stat="calls"><strong>660</strong><span>escales en 2025</span></button>
+            <p class="mpc-stat-detail" id="mpcStatDetail" aria-live="polite"><span>1996</span> MPC est une association loi 1901 créée pour coordonner et développer la filière croisière à Marseille.</p>
+          </div>
+          <div class="interface-chain" aria-label="Rôle d’interface de MPC">
+            <div><small>ACTIVITÉ PORTUAIRE</small><strong>Compagnies · GPMM · MPCT</strong></div>
+            <span aria-hidden="true"><i></i><b>MPC</b><i></i></span>
+            <div><small>TERRITOIRE</small><strong>Collectivités · tourisme · transports · commerces</strong></div>
+          </div>
+          <div class="mpc-final-axes">
+            <span><b>01</b> Environnement</span><span><b>02</b> Accueil touristique</span><span><b>03</b> Développement et suivi du marché</span>
+          </div>
+          <p class="source-note final-source">Source : rapport, pages 4 à 7.</p>
+        </div>
+      </section>
+
+      <section class="slide mission-slide mission-index-slide" id="missions-overview" data-slide-id="missions-overview" data-section="Missions &amp; travaux" data-title="Trois missions autour de la donnée" data-duration="0:30" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>VUE D’ENSEMBLE</span></div>
+        <div class="slide-inner mission-register-layout">
+          <header class="mission-index-heading">
+            <p class="eyebrow">Trois problèmes concrets</p>
+            <h2>Mesurer la fréquentation fluviale, anticiper les navettes et accélérer le traitement des manifestes.</h2>
+            <p>Pour chaque mission, j’ai défini la donnée d’entrée, le traitement, le contrôle et le résultat remis à l’équipe.</p>
+          </header>
+          <div class="mission-register" aria-label="Ouvrir une mission">
+            <button type="button" class="case-file case-fluvial" data-jump="3">
+              <span class="case-number">M-01</span>
+              <span class="case-main"><small>CROISIÈRE FLUVIALE</small><strong>Estimer la fréquentation</strong><em>Construire une méthode reproductible</em></span>
+              <span class="case-proof"><b>3 133</b><small>lignes 2026</small></span>
+              <span class="case-open">OUVRIR</span>
+            </button>
+            <button type="button" class="case-file case-navettes" data-jump="5">
+              <span class="case-number">M-02</span>
+              <span class="case-main"><small>NAVETTES PORTUAIRES PAYANTES</small><strong>Mesurer puis modéliser les flux</strong><em>Produire la donnée sur le terrain</em></span>
+              <span class="case-proof"><b>9</b><small>observations</small></span>
+              <span class="case-open">OUVRIR</span>
+            </button>
+            <button type="button" class="case-file case-manifestes" data-jump="7">
+              <span class="case-number">M-03</span>
+              <span class="case-main"><small>MANIFESTES</small><strong>Réduire la ressaisie</strong><em>Automatisation supervisée</em></span>
+              <span class="case-proof"><b>1,5–2 j</b><small>jusqu’à 2,5 j</small></span>
+              <span class="case-open">OUVRIR</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide mission-slide mission-fluvial final-fluvial-problem" id="fluvial-problem" data-slide-id="fluvial-problem" data-section="Missions &amp; travaux" data-title="Fluvial — le problème" data-duration="0:50" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSION 01 · PROBLÈME</span></div>
+        <div class="slide-inner fluvial-problem-layout">
+          <header class="fluvial-problem-copy">
+            <p class="eyebrow">Mission 01 · Rhône–Saône</p>
+            <h2>Sans manifestes, MPC ne pouvait pas connaître la fréquentation réelle des escales.</h2>
+            <p>L’extraction Gescales indiquait le navire, le port et les dates, mais pas le nombre de passagers ni la nature réelle de l’opération.</p>
+            <div class="missing-data"><span>DONNÉE MANQUANTE</span><strong>Fréquentation réelle</strong><small>Impossible de distinguer directement les opérations de tête de ligne des escales de transit.</small></div>
+          </header>
+          <div class="gescales-sheet" aria-label="Exemple schématique de l’extraction Gescales">
+            <div class="sheet-head"><span>EXTRACTION GESCALES</span><small>2025–2026</small></div>
+            <div class="sheet-columns"><b>NAVIRE</b><b>PORT</b><b>DATE</b><b>PASSAGERS</b></div>
+            <div class="sheet-row"><span>Viking Heimdal</span><span>Avignon</span><span>12/04/2026</span><em>—</em></div>
+            <div class="sheet-row"><span>Viking Heimdal</span><span>Arles</span><span>13/04/2026</span><em>—</em></div>
+            <div class="sheet-row"><span>Viking Heimdal</span><span>Avignon</span><span>14/04/2026</span><em>—</em></div>
+            <div class="fluvial-input-stats">
+              <div><strong>28</strong><span>navires</span></div><div><strong>3 133</strong><span>lignes en 2026</span></div><div><strong>3 038</strong><span>lignes en 2025</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide mission-slide mission-fluvial final-fluvial-results" id="fluvial-method-results" data-slide-id="fluvial-method-results" data-section="Missions &amp; travaux" data-title="Fluvial — méthode et résultats" data-duration="1:10" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSION 01 · MÉTHODE &amp; RÉSULTATS</span></div>
+        <div class="slide-inner fluvial-final-layout">
+          <header class="fluvial-final-heading">
+            <p class="eyebrow">Des données brutes à une estimation reproductible</p>
+            <h2>Six étapes permettent de reconstruire les itinéraires et d’estimer les passagers.</h2>
+          </header>
+          <div class="route-case final-method-chain">
+            <div class="final-method-steps" role="tablist" aria-label="Étapes de la méthode fluviale">
+              <button class="route-stop is-active" type="button" data-route-stop="Référentiel des 28 navires : capacité, compagnie, segment et ports de tête de ligne."><span>01</span><strong>Référentiel flotte</strong></button>
+              <button class="route-stop" type="button" data-route-stop="Les escales sont replacées dans l’ordre chronologique pour reconstituer chaque itinéraire."><span>02</span><strong>Itinéraires</strong></button>
+              <button class="route-stop" type="button" data-route-stop="Les règles distinguent les opérations de tête de ligne des escales de transit."><span>03</span><strong>Qualification</strong></button>
+              <button class="route-stop" type="button" data-route-stop="Les doublons, hivernages et cas particuliers sont retirés avant le calcul."><span>04</span><strong>Nettoyage</strong></button>
+              <button class="route-stop" type="button" data-route-stop="La capacité est multipliée par une hypothèse moyenne de remplissage de 90 %."><span>05</span><strong>Capacité × 90 %</strong></button>
+              <button class="route-stop" type="button" data-route-stop="La même méthode produit les estimations 2025 et 2026 et peut être réutilisée."><span>06</span><strong>Estimation</strong></button>
+            </div>
+            <div class="route-case-detail" id="routeCaseDetail"><span>RÈGLE ACTIVE</span><p>Référentiel des 28 navires : capacité, compagnie, segment et ports de tête de ligne.</p></div>
+          </div>
+          <div class="fluvial-final-kpis">
+            <article><small>PASSAGERS EN TÊTE DE LIGNE · 2026</small><strong>≈ 152 100</strong><span>+1,8 % par rapport à 2025</span></article>
+            <article><small>PASSAGERS EN TRANSIT · 2026</small><strong>≈ 223 800</strong><span>+10,6 % par rapport à 2025</span></article>
+            <p><b>Limite</b> Le taux moyen de 90 % est une hypothèse documentée ; il ne remplace pas un comptage par départ.</p>
+          </div>
+          <p class="source-note final-source">Source : rapport, pages 9 à 17.</p>
+        </div>
+      </section>
+
+      <section class="slide mission-slide mission-navettes" id="navettes-collection" data-slide-id="navettes-collection" data-section="Missions &amp; travaux" data-title="Navettes — collecte de données" data-duration="1:00" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSION 02 · TERRAIN</span></div>
+        <div class="slide-inner field-proof-layout">
+          <div class="field-evidence">
+            <figure class="evidence-sheet public-evidence-sheet">
+              <div class="public-count-sheet" aria-label="Extrait méthodologique anonymisé d’un double comptage terrain">
+                <div class="public-sheet-heading"><small>DOUBLE COMPTAGE TERRAIN</small><strong>Relevé anonymisé</strong></div>
+                <div class="public-sheet-grid" aria-hidden="true">
+                  <span>ÉTAPE</span><span>OBS. A</span><span>OBS. B</span><span>CONTRÔLE</span>
+                  <b>Sorties</b><i>relevé</i><i>relevé</i><em>moyenne</em>
+                  <b>Retours</b><i>relevé</i><i>relevé</i><em>moyenne</em>
+                </div>
+                <p>Deux observations simultanées · consolidation après vérification</p>
+              </div>
+              <figcaption><span>PIÈCE 02–A</span> Extrait méthodologique anonymisé</figcaption>
+            </figure>
+            <div class="observer-check" aria-label="Contrôle de cohérence entre deux comptages anonymisés">
+              <div><small>OBSERVATEUR</small><strong>A</strong></div>
+              <span class="check-join"><i></i><b>ÉCART &lt; 0,5 %</b><i></i></span>
+              <div><small>OBSERVATEUR</small><strong>B</strong></div>
+              <p><span>RÉSULTAT RETENU</span><b>MOYENNE</b> après contrôle</p>
+            </div>
+          </div>
+          <header class="field-copy">
+            <p class="eyebrow">Mission 02 · Avril à juin 2026</p>
+            <h2>Comment anticiper l’utilisation des navettes payantes ?</h2>
+            <p class="field-link">Terminaux du môle Léon Gourret <b>↔</b> Gare Maritime Major</p>
+            <div class="observation-funnel" aria-label="Sélection des observations">
+              <div><strong>10</strong><span>journées observées</span></div><i>−</i><div class="excluded"><strong>1</strong><span>journée écartée</span></div><i>=</i><div class="retained"><strong>9</strong><span>observations exploitables</span></div>
+            </div>
+            <p class="field-rule"><span>CHOIX DE MÉTHODE</span> Le comptage physique a été retenu pour mesurer directement les flux, avec un double comptage quand cela était possible.</p>
+          </header>
+        </div>
+      </section>
+
+      <section class="slide mission-slide mission-navettes" id="navettes-model" data-slide-id="navettes-model" data-section="Missions &amp; travaux" data-title="Navettes — modèle statistique" data-duration="1:20" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSION 02 · MODÈLE</span></div>
+        <div class="slide-inner model-proof-layout">
+          <header class="model-case-heading">
+            <p class="eyebrow">Régression linéaire sans constante · n = 9</p>
+            <h2>Le modèle fournit un ordre de grandeur par segment, à lire avec son incertitude.</h2>
+            <div class="model-equation" aria-label="Équation du modèle">
+              <span>PASSAGERS UTILISANT LES NAVETTES · ESTIMATION</span><b>=</b><em>0,3069 × PAX MASS MARKET</em><i>+</i><em>0,5246 × PAX PREMIUM</em><i>+</i><em>0,4286 × PAX LUXE</em>
+            </div>
+            <p class="model-definition">Chaque coefficient relie le nombre de passagers en transit à l’usage estimé des navettes pour un segment.</p>
+          </header>
+          <div class="model-instrument">
+            <div class="coefficient-selector" role="tablist" aria-label="Explorer les coefficients par segment">
+              <button type="button" class="coefficient-item is-active" data-model-segment="Pour 1 000 passagers mass market, le modèle estime environ 307 utilisateurs."><small>MASS MARKET</small><strong>30,69 %</strong><span style="--level:58%"></span></button>
+              <button type="button" class="coefficient-item" data-model-segment="Pour 1 000 passagers premium, le modèle estime environ 525 utilisateurs."><small>PREMIUM</small><strong>52,46 %</strong><span style="--level:100%"></span></button>
+              <button type="button" class="coefficient-item" data-model-segment="L’interprétation du coefficient du segment luxe doit rester prudente compte tenu du faible nombre d’observations."><small>LUXE</small><strong>42,86 %</strong><span style="--level:82%"></span></button>
+            </div>
+            <p class="model-segment-detail" id="modelSegmentDetail"><span>LECTURE</span> Pour 1 000 passagers mass market, le modèle estime environ 307 utilisateurs.</p>
+            <div class="model-quality" aria-label="Évaluation du modèle">
+              <div><small>ÉCHANTILLON</small><strong>9</strong><span>observations</span></div>
+              <div><small>R² CENTRÉ</small><strong>88,1 %</strong><span>sur l’échantillon · pas un taux de précision</span></div>
+              <div><small>RMSE SUR L’ÉCHANTILLON</small><strong>≈ 439</strong><span>passagers</span></div>
+              <div><small>RMSE EN VALIDATION PAR RETRAIT SUCCESSIF</small><strong>≈ 678</strong><span>passagers</span></div>
+            </div>
+            <p class="case-limit trace-note"><span>PRUDENCE</span> Avec neuf observations, le modèle fournit un ordre de grandeur ; il ne permet pas d’expliquer précisément chaque comportement individuel.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide mission-slide final-tools-slide" id="tools-operations" data-slide-id="tools-operations" data-section="Missions &amp; travaux" data-title="Des analyses aux outils opérationnels" data-duration="2:00" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSIONS 02 &amp; 03 · OUTILS</span></div>
+        <div class="slide-inner final-tools-layout">
+          <section class="tool-pane estimator-pane">
+            <header><p class="eyebrow">Estimateur de navettes · aperçu public</p><h2>Le modèle devient utilisable sans R.</h2></header>
+            <div class="tool-stats"><span><strong>772</strong> lignes analysées</span><span><strong>308</strong> dates couvertes</span></div>
+            <div class="demo-window compact-demo" id="demoWindow">
+              <div class="window-bar"><span></span><span></span><span></span><b>TABLEAU DE BORD · SYNTHÈSE 2026</b><em id="demoStatus">APERÇU PUBLIC</em></div>
+              <img class="demo-fallback" src="assets/dashboard.png" alt="Aperçu public du tableau de bord de l’estimateur de navettes 2026">
+            </div>
+            <div class="tool-actions"><button class="primary-button" type="button" data-zoom="assets/dashboard.png" data-zoom-alt="Aperçu public du tableau de bord de l’estimateur de navettes 2026">Agrandir l’aperçu</button><button class="text-button" type="button" data-action="resources">Voir le dossier public</button></div>
+          </section>
+          <section class="tool-pane manifest-pane">
+            <header><p class="eyebrow">Automatisation supervisée des manifestes</p><h2>Le traitement passe d’environ une semaine à 1,5–2 jours, puis chaque résultat est vérifié.</h2></header>
+            <div class="manifest-workflow compact-workflow">
+              <div class="workflow-steps">
+                <button class="workflow-step is-active" type="button" data-manifest-step="Réception de manifestes dont la mise en page varie selon les compagnies."><span>01</span><strong>Manifestes</strong><small>formats variables</small></button>
+                <button class="workflow-step" type="button" data-manifest-step="Un script Python, associé à un traitement assisté par IA, extrait les effectifs par nationalité."><span>02</span><strong>Extraire</strong><small>Python + IA</small></button>
+                <button class="workflow-step" type="button" data-manifest-step="Les libellés de nationalité sont harmonisés avant intégration."><span>03</span><strong>Normaliser</strong><small>référentiel commun</small></button>
+                <button class="workflow-step" type="button" data-manifest-step="Les données structurées alimentent le fichier Excel de suivi."><span>04</span><strong>Intégrer</strong><small>structure Excel</small></button>
+                <button class="workflow-step human-step" type="button" data-manifest-step="Une validation humaine reste nécessaire avant consolidation."><span>05</span><strong>Contrôler</strong><small>validation humaine</small></button>
+              </div>
+              <div class="workflow-detail" id="manifestStepDetail"><span>ÉTAPE 01 · MANIFESTES</span><p>Réception de manifestes dont la mise en page varie selon les compagnies.</p></div>
+            </div>
+            <div class="time-shift"><div><small>AVANT</small><strong>≈ 1 semaine</strong></div><i></i><div><small>APRÈS</small><strong>1,5 à 2 jours</strong><span>jusqu’à 2,5 jours si le volume augmente</span></div></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="slide bilan-slide" id="stage-bilan" data-slide-id="stage-bilan" data-section="Bilan du stage" data-title="De la donnée brute à l’aide à la décision" data-duration="2:00" aria-hidden="true">
+        <div class="section-tab bilan-tab">03 · BILAN DU STAGE <span>APPORTS &amp; COMPÉTENCES</span></div>
+        <div class="slide-inner bilan-layout">
+          <header class="bilan-heading">
+            <p class="eyebrow">Bilan du stage</p>
+            <h2>J’ai structuré les données, construit le modèle, automatisé la consolidation et contrôlé les résultats.</h2>
+          </header>
+          <div class="bilan-route" aria-label="Chaîne de travail développée pendant le stage"><span>Collecter</span><i></i><span>Structurer</span><i></i><span>Modéliser</span><i></i><span>Contrôler</span><i></i><span>Restituer</span></div>
+          <div class="bilan-columns">
+            <section><small>APPORTS POUR MPC</small><ul><li>Méthode de suivi de la fréquentation fluviale</li><li>Modèle d’estimation des navettes</li><li>Application réutilisable</li><li>Automatisation supervisée des manifestes et réduction du temps de traitement</li><li>Repérage des journées à forte demande de navettes</li></ul></section>
+            <section><small>COMPÉTENCES DÉVELOPPÉES</small><ul><li>Excel et structuration de données</li><li>R et statistiques</li><li>Python, IA et automatisation</li><li>HTML et JavaScript</li><li>Compréhension du secteur, autonomie et échanges professionnels</li></ul></section>
+          </div>
+          <div class="bilan-switches" data-summary-group data-summary-target="bilanDetail" aria-label="Lire les principaux apprentissages">
+            <button class="is-active" type="button" data-summary-row data-summary-detail="Un résultat utile doit être traçable, réutilisable et compréhensible par l’équipe."><span>01</span><strong>Utilité</strong></button>
+            <button type="button" data-summary-row data-summary-detail="Le modèle des navettes reste utile malgré un échantillon réduit, à condition d’afficher son incertitude."><span>02</span><strong>Limites</strong></button>
+            <button type="button" data-summary-row data-summary-detail="Les échanges avec MPC, le GPMM et les professionnels ont transformé les besoins terrain en règles de calcul."><span>03</span><strong>Terrain</strong></button>
+          </div>
+          <p class="bilan-detail" id="bilanDetail">Un résultat utile doit être traçable, réutilisable et compréhensible par l’équipe.</p>
+        </div>
+      </section>
+
+      <section class="slide memory-slide final-question-slide" id="memory-problem" data-slide-id="memory-problem" data-section="Mémoire" data-title="Problématique du mémoire" data-duration="0:35" aria-hidden="true">
+        <div class="section-tab memory-tab">04 · MÉMOIRE <span>PROBLÉMATIQUE</span></div>
+        <div class="slide-inner memory-question-layout">
+          <p class="eyebrow">Croisière et transition environnementale à Marseille</p>
+          <blockquote>Dans quelle mesure la transition environnementale de la filière croisière peut-elle permettre de concilier le développement de l’activité et son acceptabilité territoriale à Marseille&nbsp;?</blockquote>
+          <div class="memory-argument" aria-label="Progression du mémoire"><span>Valeur économique</span><i></i><span>Externalités</span><i></i><span>Transition</span><i></i><span>Limites</span><i></i><span>Conditions de conciliation</span></div>
+          <p class="source-note">Problématique du mémoire · page 36.</p>
+        </div>
+      </section>
+
+      <section class="slide memory-slide economic-slide" id="memory-economy" data-slide-id="memory-economy" data-section="Mémoire" data-title="Les bénéfices économiques" data-duration="0:55" aria-hidden="true">
+        <div class="section-tab memory-tab">04 · MÉMOIRE <span>ÉCONOMIE</span></div>
+        <div class="slide-inner economic-layout">
+          <header class="economic-heading"><p class="eyebrow">Pourquoi la croisière compte-t-elle pour Marseille ?</p><h2>Les retombées viennent des dépenses en hébergement, restauration, commerces, transports et excursions.</h2></header>
+          <div class="economic-hero"><small>FRÉQUENTATION 2025</small><strong>≈ 2,6 M</strong><span>croisiéristes accueillis</span></div>
+          <div class="economic-ledger" data-summary-group data-summary-target="economicDetail" aria-label="Indicateurs économiques">
+            <button class="is-active" type="button" data-summary-row data-summary-detail="Estimation 2015 : un passager en transit dépense en moyenne environ 50 euros à terre."><small>PASSAGER EN TRANSIT</small><strong>≈ 50 €</strong><span>dépense moyenne à terre · estimation 2015</span></button>
+            <button type="button" data-summary-row data-summary-detail="Estimation 2015 : un passager en tête de ligne dépense davantage, notamment en hébergement et transport."><small>PASSAGER EN TÊTE DE LIGNE</small><strong>≈ 160 €</strong><span>dépense moyenne à terre · estimation 2015</span></button>
+            <button type="button" data-summary-row data-summary-detail="L’étude CCI de 2016 constitue un repère historique et ne doit pas être présentée comme une estimation actuelle."><small>IMPACT ÉCONOMIQUE ESTIMÉ</small><strong>≈ 310 M€</strong><span>étude de 2016 · chiffre historique</span></button>
+          </div>
+          <p class="economic-detail" id="economicDetail">Estimation 2015 : un passager en transit dépense en moyenne environ 50 euros à terre.</p>
+          <div class="beneficiary-line"><span>Hôtellerie</span><span>Restauration</span><span>Commerces</span><span>Transports</span><span>Excursions</span><span>Activités maritimes</span></div>
+          <p class="source-note final-source">Source : mémoire, pages 37 à 38.</p>
+        </div>
+      </section>
+
+      <section class="slide memory-slide externalities-slide" id="memory-externalities" data-slide-id="memory-externalities" data-section="Mémoire" data-title="Externalités et acceptabilité" data-duration="0:45" aria-hidden="true">
+        <div class="section-tab memory-tab">04 · MÉMOIRE <span>EXTERNALITÉS</span></div>
+        <div class="slide-inner externalities-layout">
+          <header><p class="eyebrow">Une répartition territoriale inégale</p><h2>Les retombées se diffusent ; les nuisances se concentrent près du port et des axes de circulation.</h2></header>
+          <div class="territory-balance">
+            <section class="benefit-zone"><small>RETOMBÉES</small><strong>Peuvent se diffuser</strong><p>Marseille · métropole · région</p><div><span>Hôtels</span><span>Commerces</span><span>Excursions</span></div></section>
+            <div class="territory-axis" aria-hidden="true"><i></i><b>PORT</b><i></i></div>
+            <section class="impact-zone"><small>EXTERNALITÉS</small><strong>Plus localisées</strong><p>Quartiers portuaires et axes de circulation</p><div><span>Pollution de l’air</span><span>Bruit</span><span>Circulation</span><span>Flux de visiteurs</span></div></section>
+          </div>
+          <div class="nox-proof"><strong>54 %</strong><p>des émissions communales de NOx en 2021 étaient liées au trafic maritime.</p><span>Toutes activités maritimes confondues — pas seulement la croisière.</span></div>
+          <p class="source-note final-source">Source : AtmoSud, 2025a · donnée 2021.</p>
+        </div>
+      </section>
+
+      <section class="slide memory-slide transition-slide" id="memory-transition" data-slide-id="memory-transition" data-section="Mémoire" data-title="Une transition déjà engagée" data-duration="1:00" aria-hidden="true">
+        <div class="section-tab memory-tab">04 · MÉMOIRE <span>RÉPONSES ENVIRONNEMENTALES</span></div>
+        <div class="slide-inner transition-layout">
+          <header><p class="eyebrow">Trois niveaux d’action</p><h2>La réglementation, le port et la flotte évoluent en même temps.</h2></header>
+          <div class="lever-track transition-levers" role="tablist" aria-label="Explorer les réponses environnementales">
+            <button class="lever is-active" type="button" data-lever="0"><span>01</span><strong>Réglementation</strong><small>EU ETS · FuelEU Maritime · SECA</small></button>
+            <button class="lever" type="button" data-lever="1"><span>02</span><strong>Infrastructure</strong><small>CENAQ · électrification à quai</small></button>
+            <button class="lever" type="button" data-lever="2"><span>03</span><strong>Flotte</strong><small>Efficacité · GNL · nouveaux carburants</small></button>
+          </div>
+          <div class="transition-reading" id="leverDetail" aria-live="polite">
+            <div><span>EFFET ATTENDU</span><strong>Réduire les émissions couvertes par des règles plus strictes.</strong></div>
+            <div><span>POINT DOCUMENTÉ</span><strong>EU ETS, FuelEU Maritime et SECA Méditerranée.</strong></div>
+            <div><span>LIMITE</span><strong>Ces dispositifs ne ciblent pas les mêmes émissions.</strong></div>
+          </div>
+          <div class="cenaq-case">
+            <div class="cenaq-head"><span>CENAQ</span><strong>&gt; 200 M€</strong><small>ensemble du programme · jusqu’à 3 grands navires raccordés simultanément</small></div>
+            <div class="scenario-bars"><span><small>SANS ÉLECTRIFICATION</small><i style="--bar:11%"></i><b>−3,75 %</b></span><span><small>AVEC 60 % DU TEMPS D’ESCALE ÉLECTRIFIÉ</small><i style="--bar:100%"></i><b>−33,5 %</b></span></div>
+            <p>Scénarios NOx croisière 2025 par rapport à 2022 — pas des résultats mesurés.</p>
+          </div>
+          <p class="source-note final-source">Source : mémoire, pages 43 à 48 · scénarios Pôle Mer Méditerranée/Citepa, 2024.</p>
+        </div>
+      </section>
+
+      <section class="slide memory-slide lng-slide" id="memory-gnl" data-slide-id="memory-gnl" data-section="Mémoire" data-title="GNL et methane slip" data-duration="1:00" aria-hidden="true">
+        <div class="section-tab memory-tab">04 · MÉMOIRE <span>LIMITES TECHNOLOGIQUES</span></div>
+        <div class="slide-inner lng-layout">
+          <header><p class="eyebrow">Qualité de l’air et climat : deux bilans distincts</p><h2>Le GNL réduit certains polluants atmosphériques. La fuite de méthane peut toutefois diminuer son avantage climatique.</h2></header>
+          <figure class="lng-figure public-lng-figure">
+            <div class="public-lng-chart" role="img" aria-label="Lecture simplifiée du bilan climatique relatif du GNL et du gazole marin selon la charge moteur">
+              <div class="public-chart-key"><span><i class="lng-key"></i>GNL</span><span><i class="mgo-key"></i>Gazole marin</span></div>
+              <div class="public-lng-bars">
+                <span class="public-load"><span class="public-pair"><i class="lng-bar" style="--value:100%"></i><i class="mgo-bar" style="--value:87%"></i></span><b>10–12 %</b></span>
+                <span class="public-load"><span class="public-pair"><i class="lng-bar" style="--value:59%"></i><i class="mgo-bar" style="--value:53%"></i></span><b>25 %</b></span>
+                <span class="public-load"><span class="public-pair"><i class="lng-bar" style="--value:37%"></i><i class="mgo-bar" style="--value:44%"></i></span><b>54 %</b></span>
+                <span class="public-load"><span class="public-pair"><i class="lng-bar" style="--value:35%"></i><i class="mgo-bar" style="--value:43%"></i></span><b>75 %</b></span>
+                <span class="public-load"><span class="public-pair"><i class="lng-bar" style="--value:35%"></i><i class="mgo-bar" style="--value:41%"></i></span><b>80 %</b></span>
+              </div>
+            </div>
+            <figcaption>Lecture simplifiée des émissions en CO₂ équivalent selon la charge moteur · d’après Kuittinen et al., 2024.</figcaption>
+          </figure>
+          <div class="lng-contrast" data-summary-group data-summary-target="lngDetail" aria-label="Comparer qualité de l’air et climat">
+            <button class="air-card is-active" type="button" data-summary-row data-summary-detail="Sur le navire étudié et par rapport au gazole marin : −87 à −93 % de masse de particules et −94 à −99 % de carbone noir."><small>QUALITÉ DE L’AIR</small><strong>−87 à −93 %</strong><span>masse de particules</span><b>−94 à −99 % · carbone noir</b></button>
+            <button class="climate-card" type="button" data-summary-row data-summary-detail="La fuite de méthane (« methane slip ») désigne le méthane non brûlé rejeté dans l’atmosphère. À faible charge, elle peut réduire ou annuler l’avantage climatique du GNL."><small>CLIMAT</small><strong>Fuite de méthane</strong><span>« methane slip » · méthane non brûlé</span><b>avantage climatique plus incertain</b></button>
+          </div>
+          <p class="lng-detail" id="lngDetail">Sur le navire étudié et par rapport au gazole marin : −87 à −93 % de masse de particules et −94 à −99 % de carbone noir.</p>
+          <p class="source-note final-source">Source : mémoire, page 50 · Kuittinen et al., 2024.</p>
+        </div>
+      </section>
+
+      <section class="slide memory-slide answer-slide" id="memory-answer" data-slide-id="memory-answer" data-section="Mémoire" data-title="Réponse à la problématique" data-duration="0:45" aria-hidden="true">
+        <div class="section-tab memory-tab">04 · MÉMOIRE <span>RÉPONSE</span></div>
+        <div class="slide-inner answer-layout">
+          <header><p class="eyebrow">Peut-on concilier développement et acceptabilité ?</p><h2>La réponse dépend de trois conditions.</h2><p>Usage réel des équipements, baisse absolue des impacts et gestion territoriale des flux.</p></header>
+          <div class="answer-conditions" data-summary-group data-summary-target="answerDetail" aria-label="Trois conditions de conciliation">
+            <button class="is-active" type="button" data-summary-row data-summary-detail="L’utilisation effective des infrastructures et des technologies conditionne leurs bénéfices."><span>01</span><strong>Utilisation effective</strong><small>Utiliser réellement les équipements</small></button>
+            <button type="button" data-summary-row data-summary-detail="Les gains par navire doivent produire une diminution absolue des impacts malgré l’évolution du trafic."><span>02</span><strong>Réduction absolue</strong><small>Mesurer l’impact global de l’activité</small></button>
+            <button type="button" data-summary-row data-summary-detail="La transition technique doit être accompagnée d’une gestion des déplacements, des flux de passagers et des nuisances résiduelles."><span>03</span><strong>Intégration territoriale</strong><small>Gérer les flux et les nuisances résiduelles</small></button>
+          </div>
+          <p class="answer-detail" id="answerDetail">L’utilisation effective des infrastructures et des technologies conditionne leurs bénéfices.</p>
+          <div class="final-statement"><strong>La transition devra s’accompagner d’une baisse absolue des impacts et d’une gestion territoriale des flux.</strong><span>Les prochaines années permettront d’évaluer si Marseille parvient à décorréler le développement de la croisière de l’augmentation de ses impacts.</span></div>
+          <p class="thanks">Merci pour votre attention.</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navigation entre les slides">
+      <button type="button" data-action="prev" aria-label="Slide précédente"><span>←</span><small>PRÉCÉDENT</small></button>
+      <div class="slide-meta"><span id="sectionName">Introduction</span><strong id="slideTitle">Rapport de stage et mémoire</strong><small id="slideCount">01 / 15</small></div>
+      <button type="button" data-action="next" aria-label="Slide suivante"><small>SUIVANT</small><span>→</span></button>
+    </nav>
+  </div>
+
+  <aside class="notes-panel" id="notesPanel" aria-hidden="true" aria-label="Notes orales">
+    <header><div><small>NOTES ORALES</small><strong id="notesTitle">Rapport de stage et mémoire</strong></div><button class="icon-button" type="button" data-action="notes" aria-label="Fermer les notes">×</button></header>
+    <div class="notes-body" id="notesBody"></div>
+    <footer><span id="sectionTimer">Section 00:00</span><span id="recommendedTime">Recommandé 00:15</span></footer>
+  </aside>
+
+  <div class="modal" id="overviewModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="overviewTitle">
+    <div class="modal-card overview-card">
+      <header><div><small>VUE D’ENSEMBLE</small><h2 id="overviewTitle">Les 15 slides</h2></div><button class="icon-button" type="button" data-close-modal aria-label="Fermer">×</button></header>
+      <div class="overview-grid" id="overviewGrid"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="resourcesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resourcesTitle">
+    <div class="modal-card resources-modal-card">
+      <header><div><small>DOSSIER PUBLIC</small><h2 id="resourcesTitle">Méthode, preuves et confidentialité</h2></div><button class="icon-button" type="button" data-close-modal aria-label="Fermer">×</button></header>
+      <div class="resource-grid">
+        <article class="resource-card is-static"><span class="file-icon app-icon">OUTIL</span><div><small>APERÇU DOCUMENTÉ</small><strong>Estimateur de navettes</strong><p>Le modèle, ses entrées et ses principaux indicateurs sont présentés sans publier l’application opérationnelle.</p></div></article>
+        <article class="resource-card is-static"><span class="file-icon csv-icon">DATA</span><div><small>PÉRIMÈTRE AGRÉGÉ</small><strong>772 lignes · 308 dates</strong><p>Seuls les volumes agrégés, la méthode et les limites sont exposés ; le planning source reste privé.</p></div></article>
+        <article class="resource-card is-static"><span class="file-icon pdf-icon">ACCÈS</span><div><small>DOCUMENTS RESTREINTS</small><strong>Livrables non diffusés</strong><p>Le rapport complet, l’application opérationnelle et le planning sont réservés au cadre d’évaluation.</p></div></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="helpModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <div class="modal-card help-card">
+      <header><div><small>COMMANDES</small><h2 id="helpTitle">Piloter la présentation</h2></div><button class="icon-button" type="button" data-close-modal aria-label="Fermer">×</button></header>
+      <div class="shortcut-grid">
+        <span><kbd>→</kbd><kbd>Espace</kbd><b>Suivant</b></span><span><kbd>←</kbd><b>Précédent</b></span>
+        <span><kbd>Esc</kbd><b>Retour à la couverture</b></span><span><kbd>F</kbd><b>Plein écran</b></span>
+        <span><kbd>N</kbd><b>Notes orales</b></span><span><kbd>P</kbd><b>Console présentateur</b></span>
+        <span><kbd>O</kbd><b>Vue d’ensemble</b></span><span><kbd>R</kbd><b>Dossier public</b></span>
+        <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><b>Sections</b></span><span><kbd>D</kbd><b>Outils opérationnels</b></span>
+      </div>
+      <div class="timer-settings"><span>Objectif de durée</span><button type="button" data-target-minutes="15">15 min</button><button type="button" class="is-active" data-target-minutes="16.5">16 min 30</button><button type="button" data-target-minutes="18">18 min</button></div>
+      <p class="timing-note"><strong>Repères détaillés : 14 min 50</strong><span>Marge de respiration : 1 min 40 · objectif : 16 min 30.</span></p>
+    </div>
+  </div>
+
+  <div class="modal image-modal" id="imageModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Aperçu agrandi">
+    <button class="image-close" type="button" data-close-modal aria-label="Fermer l’image">×</button>
+    <img id="zoomedImage" src="assets/cover.jpg" alt="Aperçu agrandi">
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
