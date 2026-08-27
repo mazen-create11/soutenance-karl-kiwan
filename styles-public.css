@@ -302,6 +302,7 @@ body::after{background-image:none}
 }
 
 @media(max-width:899px){
+  .mission-register-layout{grid-template-columns:1fr}
   #memory-externalities .territorial-acceptability{grid-template-columns:1fr;gap:6px}
   #memory-transition .regulation-key>div{grid-template-columns:1fr;gap:3px}
   #memory-transition .cenaq-head{grid-row:auto}

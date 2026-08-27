@@ -137,7 +137,7 @@ const notesBySlideId = {
       'Le fichier 2026 comporte 772 lignes réparties sur 308 dates ; les lignes annulées ou déprogrammées sont exclues des agrégats opérationnels.',
       'L’estimateur opérationnel du stage utilise des coefficients légèrement différents de la reproduction finale sous R affichée à la fiche précédente.',
       'Pour une date et un navire, elle fournit un ordre de grandeur, une fourchette indicative et un besoin de rotations.',
-      'La copie publique montre uniquement une synthèse visuelle ; l’application opérationnelle et le planning source ne sont pas diffusés.'
+      'L’estimateur complet s’ouvre dans un nouvel onglet ; le planning source n’est pas intégré à la présentation.'
     ],
     cue: 'Cliquer sur « Ouvrir l’estimateur », montrer une seule simulation, puis revenir à la soutenance.'
   },
