@@ -303,6 +303,10 @@ body::after{background-image:none}
 
 @media(max-width:899px){
   .mission-register-layout{grid-template-columns:1fr}
+  .model-proof-layout{grid-template-columns:minmax(0,1fr)}
+  .model-proof-layout>*{min-width:0}
+  .model-quality{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .coefficient-item{grid-template-columns:minmax(0,1fr) 76px minmax(64px,.8fr);gap:8px}
   #memory-externalities .territorial-acceptability{grid-template-columns:1fr;gap:6px}
   #memory-transition .regulation-key>div{grid-template-columns:1fr;gap:3px}
   #memory-transition .cenaq-head{grid-row:auto}
