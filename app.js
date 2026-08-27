@@ -7,7 +7,8 @@ const slideIdByTitle = {
   'Fluvial — méthode et résultats': 'fluvial-method-results',
   'Navettes — collecte de données': 'navettes-collection',
   'Navettes — modèle statistique': 'navettes-model',
-  'Des analyses aux outils opérationnels': 'tools-operations',
+  'Mission 2 — Transformer le modèle en estimateur opérationnel': 'navettes-estimator',
+  'Mission 3 — Automatiser le traitement des manifestes': 'manifestes-automation',
   'De la donnée brute à l’aide à la décision': 'stage-bilan',
   'Problématique du mémoire': 'memory-problem',
   'Les bénéfices économiques': 'memory-economy',
@@ -24,7 +25,8 @@ const slideIdsInOrder = [
   'fluvial-method-results',
   'navettes-collection',
   'navettes-model',
-  'tools-operations',
+  'navettes-estimator',
+  'manifestes-automation',
   'stage-bilan',
   'memory-problem',
   'memory-economy',
@@ -40,11 +42,7 @@ slides.forEach((slide, index) => {
   slideIndexById.set(slideId, index);
 });
 if (slides.length !== slideIdsInOrder.length) console.warn(`Structure attendue : ${slideIdsInOrder.length} slides, structure trouvée : ${slides.length}.`);
-const jumpRouteByLegacyIndex = {
-  3: 'fluvial-problem',
-  5: 'navettes-collection',
-  7: 'tools-operations'
-};
+const slideRouteAliases = { 'tools-operations': 'navettes-estimator' };
 const sectionRouteByKey = {
   1: 'mpc-interface',
   2: 'missions-overview',
@@ -133,16 +131,24 @@ const notesBySlideId = {
     ],
     cue: 'Sélectionner Premium, puis formuler immédiatement la limite du modèle.'
   },
-  'tools-operations': {
+  'navettes-estimator': {
     bullets: [
       'L’application HTML et JavaScript rend le modèle utilisable par l’équipe sans passer par R.',
       'Le fichier 2026 comporte 772 lignes réparties sur 308 dates ; les lignes annulées ou déprogrammées sont exclues des agrégats opérationnels.',
-      'L’application présentée est la version opérationnelle du stage ; ses coefficients diffèrent légèrement de la reproduction finale sous R affichée à la fiche précédente.',
-      'La copie publique montre une synthèse visuelle ; l’application, le rapport complet et le planning ne sont pas diffusés.',
-      'La procédure manifestes combine extraction Python, aide de l’IA, normalisation, intégration Excel et validation humaine.',
+      'L’estimateur opérationnel du stage utilise des coefficients légèrement différents de la reproduction finale sous R affichée à la fiche précédente.',
+      'Pour une date et un navire, elle fournit un ordre de grandeur, une fourchette indicative et un besoin de rotations.',
+      'La copie publique montre uniquement une synthèse visuelle ; l’application opérationnelle et le planning source ne sont pas diffusés.'
+    ],
+    cue: 'Agrandir l’aperçu si nécessaire, puis rappeler qu’il s’agit d’une aide au dimensionnement et non d’une prévision certaine.'
+  },
+  'manifestes-automation': {
+    bullets: [
+      'Les nationalités étaient déjà présentes dans les manifestes, mais leur consolidation dans Excel demandait un traitement manuel long.',
+      'La procédure combine extraction Python, traitement assisté par IA, harmonisation des libellés et intégration dans le fichier de suivi.',
+      'Le workflow reste supervisé : les résultats sont relus avant leur consolidation définitive.',
       'Le délai passe généralement d’environ une semaine à 1,5–2 jours, et peut atteindre 2,5 jours lorsque le volume augmente.'
     ],
-    cue: 'Agrandir l’aperçu seulement si cela soutient l’explication, puis revenir au workflow des manifestes.'
+    cue: 'Parcourir les cinq étapes et terminer sur « Contrôler » pour rendre la supervision humaine explicite.'
   },
   'stage-bilan': {
     bullets: [
@@ -299,11 +305,11 @@ const slideAnimations = new Set();
 const detailAnimations = new WeakMap();
 const modalReturnFocus = new WeakMap();
 const modalFocusTimers = new WeakMap();
-const interactiveSelector = 'a, button, input, select, textarea, iframe, summary, [contenteditable="true"], [role="button"], [role="tab"], [role="slider"]';
+const interactiveSelector = 'a, button, input, select, textarea, summary, [contenteditable="true"], [role="button"], [role="tab"], [role="slider"]';
 const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 function slideIndexFor(route) {
-  return slideIndexById.get(route);
+  return slideIndexById.get(slideRouteAliases[route] || route);
 }
 
 function goToRoute(route, options = {}) {
@@ -1136,11 +1142,7 @@ document.addEventListener('click', event => {
   if (actionButton) handleAction(actionButton.dataset.action, actionButton);
 
   const jumpButton = event.target.closest('[data-jump]');
-  if (jumpButton) {
-    const route = jumpRouteByLegacyIndex[jumpButton.dataset.jump];
-    if (route) goToRoute(route);
-    else goTo(jumpButton.dataset.jump);
-  }
+  if (jumpButton) goToRoute(jumpButton.dataset.jump);
 
   const progressButton = event.target.closest('[data-progress-jump]');
   if (progressButton) goTo(progressButton.dataset.progressJump);
@@ -1257,7 +1259,7 @@ document.addEventListener('keydown', event => {
   if (event.key.toLowerCase() === 'o') openModal(overviewModal, document.querySelector('[data-action="overview"]'));
   if (event.key.toLowerCase() === 'r') openModal(resourcesModal, document.querySelector('[data-action="resources"]'));
   if (event.key.toLowerCase() === 'p') openPresenter();
-  if (event.key.toLowerCase() === 'd') goToRoute('tools-operations', { focus: true });
+  if (event.key.toLowerCase() === 'd') goToRoute('navettes-estimator', { focus: true });
   if (sectionRouteByKey[event.key]) goToRoute(sectionRouteByKey[event.key], { focus: true });
   if (event.key === '?') openModal(helpModal, document.querySelector('[data-action="help"]'));
 });

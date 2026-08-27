@@ -113,21 +113,21 @@
             <p>Pour chaque mission, j’ai défini la donnée d’entrée, le traitement, le contrôle et le résultat remis à l’équipe.</p>
           </header>
           <div class="mission-register" aria-label="Ouvrir une mission">
-            <button type="button" class="case-file case-fluvial" data-jump="3">
+            <button type="button" class="case-file case-fluvial" data-jump="fluvial-problem">
               <span class="case-number">M-01</span>
-              <span class="case-main"><small>CROISIÈRE FLUVIALE</small><strong>Estimer la fréquentation</strong><em>Construire une méthode reproductible</em></span>
+              <span class="case-main"><small>CROISIÈRE FLUVIALE</small><strong>Étudier la fréquentation fluviale</strong><em>Base d’escales et estimation reproductible</em></span>
               <span class="case-proof"><b>3 133</b><small>lignes 2026</small></span>
               <span class="case-open">OUVRIR</span>
             </button>
-            <button type="button" class="case-file case-navettes" data-jump="5">
+            <button type="button" class="case-file case-navettes" data-jump="navettes-collection">
               <span class="case-number">M-02</span>
-              <span class="case-main"><small>NAVETTES PORTUAIRES PAYANTES</small><strong>Mesurer puis modéliser les flux</strong><em>Produire la donnée sur le terrain</em></span>
+              <span class="case-main"><small>NAVETTES PORTUAIRES PAYANTES</small><strong>Construire l’étude des navettes</strong><em>Comptages, modèle et estimateur</em></span>
               <span class="case-proof"><b>9</b><small>observations</small></span>
               <span class="case-open">OUVRIR</span>
             </button>
-            <button type="button" class="case-file case-manifestes" data-jump="7">
+            <button type="button" class="case-file case-manifestes" data-jump="manifestes-automation">
               <span class="case-number">M-03</span>
-              <span class="case-main"><small>MANIFESTES</small><strong>Réduire la ressaisie</strong><em>Automatisation supervisée</em></span>
+              <span class="case-main"><small>MANIFESTES</small><strong>Automatiser les manifestes</strong><em>Extraction, normalisation et contrôle</em></span>
               <span class="case-proof"><b>1,5–2 j</b><small>jusqu’à 2,5 j</small></span>
               <span class="case-open">OUVRIR</span>
             </button>
@@ -248,31 +248,63 @@
         </div>
       </section>
 
-      <section class="slide mission-slide final-tools-slide" id="tools-operations" data-slide-id="tools-operations" data-section="Missions &amp; travaux" data-title="Des analyses aux outils opérationnels" data-duration="2:00" aria-hidden="true">
-        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSIONS 02 &amp; 03 · OUTILS</span></div>
-        <div class="slide-inner final-tools-layout">
-          <section class="tool-pane estimator-pane">
-            <header><p class="eyebrow">Estimateur de navettes · aperçu public</p><h2>Le modèle devient utilisable sans R.</h2></header>
-            <div class="tool-stats"><span><strong>772</strong> lignes analysées</span><span><strong>308</strong> dates couvertes</span></div>
-            <div class="demo-window compact-demo" id="demoWindow">
+      <section class="slide mission-slide public-tool-slide public-estimator-slide" id="navettes-estimator" data-slide-id="navettes-estimator" data-section="Missions &amp; travaux" data-title="Mission 2 — Transformer le modèle en estimateur opérationnel" data-duration="2:00" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSION 02 · ESTIMATEUR</span></div>
+        <div class="slide-inner public-tool-layout">
+          <section class="tool-pane estimator-pane public-estimator-pane">
+            <header class="public-tool-header">
+              <p class="eyebrow">Estimateur de navettes · aperçu public</p>
+              <h2>Mission 2 — Transformer le modèle en estimateur opérationnel</h2>
+              <p class="public-tool-intro">L’interface HTML et JavaScript permet à l’équipe d’exploiter le modèle sans ouvrir R.</p>
+            </header>
+            <div class="public-estimator-proof">
+              <div class="tool-stats"><span><strong>772</strong> lignes du planning</span><span><strong>308</strong> dates couvertes</span></div>
+              <p class="public-filter-note">Après filtrage : 714 lignes actives réparties sur 302 dates.</p>
+              <div class="public-operation-route" aria-label="Du planning à l’aide à la décision">
+                <span><small>01</small><strong>Sélectionner</strong><em>une date et un navire</em></span>
+                <i aria-hidden="true"></i>
+                <span><small>02</small><strong>Estimer</strong><em>la demande par segment</em></span>
+                <i aria-hidden="true"></i>
+                <span><small>03</small><strong>Dimensionner</strong><em>une fourchette et des rotations</em></span>
+              </div>
+              <p class="public-safety-note"><span>DIFFUSION MAÎTRISÉE</span> Cet aperçu est statique. L’application opérationnelle et le planning source restent réservés au cadre d’évaluation.</p>
+              <div class="tool-actions"><button class="primary-button" type="button" data-zoom="assets/dashboard.png" data-zoom-alt="Aperçu public du tableau de bord de l’estimateur de navettes 2026">Agrandir l’aperçu</button><button class="text-button" type="button" data-action="resources">Voir le dossier public</button></div>
+            </div>
+            <div class="demo-window public-estimator-preview" id="demoWindow">
               <div class="window-bar"><span></span><span></span><span></span><b>TABLEAU DE BORD · SYNTHÈSE 2026</b><em id="demoStatus">APERÇU PUBLIC</em></div>
               <img class="demo-fallback" src="assets/dashboard.png" alt="Aperçu public du tableau de bord de l’estimateur de navettes 2026">
             </div>
-            <div class="tool-actions"><button class="primary-button" type="button" data-zoom="assets/dashboard.png" data-zoom-alt="Aperçu public du tableau de bord de l’estimateur de navettes 2026">Agrandir l’aperçu</button><button class="text-button" type="button" data-action="resources">Voir le dossier public</button></div>
           </section>
-          <section class="tool-pane manifest-pane">
-            <header><p class="eyebrow">Automatisation supervisée des manifestes</p><h2>Le traitement passe d’environ une semaine à 1,5–2 jours, puis chaque résultat est vérifié.</h2></header>
-            <div class="manifest-workflow compact-workflow">
-              <div class="workflow-steps">
-                <button class="workflow-step is-active" type="button" data-manifest-step="Réception de manifestes dont la mise en page varie selon les compagnies."><span>01</span><strong>Manifestes</strong><small>formats variables</small></button>
-                <button class="workflow-step" type="button" data-manifest-step="Un script Python, associé à un traitement assisté par IA, extrait les effectifs par nationalité."><span>02</span><strong>Extraire</strong><small>Python + IA</small></button>
-                <button class="workflow-step" type="button" data-manifest-step="Les libellés de nationalité sont harmonisés avant intégration."><span>03</span><strong>Normaliser</strong><small>référentiel commun</small></button>
-                <button class="workflow-step" type="button" data-manifest-step="Les données structurées alimentent le fichier Excel de suivi."><span>04</span><strong>Intégrer</strong><small>structure Excel</small></button>
-                <button class="workflow-step human-step" type="button" data-manifest-step="Une validation humaine reste nécessaire avant consolidation."><span>05</span><strong>Contrôler</strong><small>validation humaine</small></button>
+        </div>
+      </section>
+
+      <section class="slide mission-slide public-tool-slide public-manifest-slide" id="manifestes-automation" data-slide-id="manifestes-automation" data-section="Missions &amp; travaux" data-title="Mission 3 — Automatiser le traitement des manifestes" data-duration="1:40" aria-hidden="true">
+        <div class="section-tab mission-tab">02 · MISSIONS &amp; TRAVAUX <span>MISSION 03 · AUTOMATISATION</span></div>
+        <div class="slide-inner public-tool-layout">
+          <section class="tool-pane manifest-pane public-manifest-pane">
+            <header class="public-tool-header">
+              <p class="eyebrow">Automatisation supervisée · manifestes passagers</p>
+              <h2>Mission 3 — Automatiser le traitement des manifestes</h2>
+              <p class="public-tool-intro">L’extraction est accélérée, mais la consolidation reste soumise à une validation humaine.</p>
+            </header>
+            <div class="public-manifest-core">
+              <div class="manifest-workflow compact-workflow" aria-label="Workflow supervisé en cinq étapes">
+                <div class="workflow-steps">
+                  <button class="workflow-step is-active" type="button" data-manifest-step="Réception de manifestes dont la mise en page varie selon les compagnies."><span>01</span><strong>Manifestes</strong><small>formats variables</small></button>
+                  <button class="workflow-step" type="button" data-manifest-step="Un script Python, associé à un traitement assisté par IA, extrait les effectifs par nationalité."><span>02</span><strong>Extraire</strong><small>Python + IA</small></button>
+                  <button class="workflow-step" type="button" data-manifest-step="Les libellés de nationalité sont harmonisés avant intégration."><span>03</span><strong>Normaliser</strong><small>référentiel commun</small></button>
+                  <button class="workflow-step" type="button" data-manifest-step="Les données structurées alimentent le fichier Excel de suivi."><span>04</span><strong>Intégrer</strong><small>structure Excel</small></button>
+                  <button class="workflow-step human-step" type="button" data-manifest-step="Une validation humaine reste nécessaire avant consolidation."><span>05</span><strong>Contrôler</strong><small>validation humaine</small></button>
+                </div>
+                <div class="workflow-detail" id="manifestStepDetail"><span>ÉTAPE 01 · MANIFESTES</span><p>Réception de manifestes dont la mise en page varie selon les compagnies.</p></div>
               </div>
-              <div class="workflow-detail" id="manifestStepDetail"><span>ÉTAPE 01 · MANIFESTES</span><p>Réception de manifestes dont la mise en page varie selon les compagnies.</p></div>
+              <aside class="public-human-control">
+                <span>POINT DE CONTRÔLE</span>
+                <strong>La validation humaine reste la dernière étape.</strong>
+                <p>Les résultats extraits et les libellés harmonisés sont relus avant leur consolidation dans Excel.</p>
+              </aside>
             </div>
-            <div class="time-shift"><div><small>AVANT</small><strong>≈ 1 semaine</strong></div><i></i><div><small>APRÈS</small><strong>1,5 à 2 jours</strong><span>jusqu’à 2,5 jours si le volume augmente</span></div></div>
+            <div class="time-shift"><div><small>AVANT</small><strong>≈ 1 semaine</strong><span>traitement manuel</span></div><i></i><div><small>APRÈS</small><strong>1,5 à 2 jours</strong><span>jusqu’à 2,5 jours si le volume augmente</span></div></div>
           </section>
         </div>
       </section>
@@ -405,7 +437,7 @@
 
     <nav class="bottom-nav" aria-label="Navigation entre les slides">
       <button type="button" data-action="prev" aria-label="Slide précédente"><span>←</span><small>PRÉCÉDENT</small></button>
-      <div class="slide-meta"><span id="sectionName">Introduction</span><strong id="slideTitle">Rapport de stage et mémoire</strong><small id="slideCount">01 / 15</small></div>
+      <div class="slide-meta"><span id="sectionName">Introduction</span><strong id="slideTitle">Rapport de stage et mémoire</strong><small id="slideCount">01 / 16</small></div>
       <button type="button" data-action="next" aria-label="Slide suivante"><small>SUIVANT</small><span>→</span></button>
     </nav>
   </div>
@@ -418,7 +450,7 @@
 
   <div class="modal" id="overviewModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="overviewTitle">
     <div class="modal-card overview-card">
-      <header><div><small>VUE D’ENSEMBLE</small><h2 id="overviewTitle">Les 15 slides</h2></div><button class="icon-button" type="button" data-close-modal aria-label="Fermer">×</button></header>
+      <header><div><small>VUE D’ENSEMBLE</small><h2 id="overviewTitle">Les 16 slides</h2></div><button class="icon-button" type="button" data-close-modal aria-label="Fermer">×</button></header>
       <div class="overview-grid" id="overviewGrid"></div>
     </div>
   </div>
@@ -442,10 +474,10 @@
         <span><kbd>Esc</kbd><b>Retour à la couverture</b></span><span><kbd>F</kbd><b>Plein écran</b></span>
         <span><kbd>N</kbd><b>Notes orales</b></span><span><kbd>P</kbd><b>Console présentateur</b></span>
         <span><kbd>O</kbd><b>Vue d’ensemble</b></span><span><kbd>R</kbd><b>Dossier public</b></span>
-        <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><b>Sections</b></span><span><kbd>D</kbd><b>Outils opérationnels</b></span>
+        <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><b>Sections</b></span><span><kbd>D</kbd><b>Aperçu de l’estimateur</b></span>
       </div>
       <div class="timer-settings"><span>Objectif de durée</span><button type="button" data-target-minutes="15">15 min</button><button type="button" class="is-active" data-target-minutes="16.5">16 min 30</button><button type="button" data-target-minutes="18">18 min</button></div>
-      <p class="timing-note"><strong>Repères détaillés : 14 min 50</strong><span>Marge de respiration : 1 min 40 · objectif : 16 min 30.</span></p>
+      <p class="timing-note"><strong>Repères détaillés : 16 min 30</strong><span>Objectif : 16 min 30 · déroulé réparti sur 16 fiches.</span></p>
     </div>
   </div>
 

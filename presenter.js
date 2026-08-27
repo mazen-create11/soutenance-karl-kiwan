@@ -26,7 +26,7 @@ function render(state) {
   connection.classList.add('is-live');
   connection.replaceChildren(document.createElement('i'), document.createTextNode(' Synchronisé avec la présentation'));
   mainClock.textContent = formatTime(state.elapsed);
-  targetClock.textContent = `OBJECTIF ${formatTime(state.target)} · REPÈRES 14:50`;
+  targetClock.textContent = `OBJECTIF ${formatTime(state.target)} · REPÈRES 16:30`;
   sectionClock.textContent = formatTime(state.sectionElapsed);
   currentSection.textContent = state.section.toUpperCase();
   currentCount.textContent = `${String(state.index + 1).padStart(2, '0')} / ${String(state.count).padStart(2, '0')}`;

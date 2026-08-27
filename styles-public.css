@@ -32,10 +32,69 @@ body::after{background-image:none}
 .public-pair i{width:22px;height:var(--value);display:block;border-radius:2px 2px 0 0;box-shadow:inset 0 1px rgba(255,255,255,.35)}
 .public-lng-figure figcaption{color:var(--color-ink-muted)}
 
+/* Missions 02–03 : une fiche par outil, pensée pour la projection. */
+.public-estimator-slide{--chapter:var(--color-teal)}
+.public-manifest-slide{--chapter:var(--color-copper)}
+.public-tool-layout{display:grid;align-content:center;padding-top:50px;padding-bottom:18px}
+.public-tool-layout .tool-pane{min-height:0;padding:22px 24px;border-top-width:3px;box-shadow:var(--shadow-low)}
+.public-tool-layout .public-tool-header{display:grid;grid-template-columns:170px minmax(0,1fr) minmax(250px,.52fr);gap:18px;align-items:end;margin:0;padding-bottom:17px;border-bottom:1px solid var(--color-line)}
+.public-tool-header .eyebrow{align-self:start;margin:4px 0 0}
+.public-tool-header h2{margin:0;font-size:clamp(34px,3.15vw,49px);line-height:.98;letter-spacing:-.025em}
+.public-tool-intro{margin:0;font-size:13px;line-height:1.5;color:var(--color-ink-muted)}
+
+.public-estimator-pane{display:grid;grid-template-columns:minmax(310px,.72fr) minmax(500px,1.28fr);grid-template-rows:auto minmax(0,1fr);gap:19px 24px;min-height:560px}
+.public-estimator-pane>.public-tool-header{grid-column:1/-1}
+.public-estimator-proof{display:flex;min-width:0;flex-direction:column}
+.public-estimator-proof .tool-stats{margin:0 0 12px}
+.public-estimator-proof .tool-stats span{padding:9px 10px}
+.public-filter-note{margin:-5px 0 10px;font:500 9px/1.4 "IBM Plex Mono",monospace;color:var(--color-ink-muted)}
+.public-operation-route{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--color-line);border-bottom:1px solid var(--color-line)}
+.public-operation-route>span{position:relative;display:grid;grid-template-columns:31px 1fr;grid-template-rows:auto auto;column-gap:10px;padding:9px 6px}
+.public-operation-route>span+span{border-top:1px solid var(--color-line)}
+.public-operation-route small{grid-row:1/3;align-self:center;font:650 10px "IBM Plex Mono",monospace;color:var(--color-copper-deep)}
+.public-operation-route strong{font-size:13px;color:var(--color-ink-strong)}
+.public-operation-route em{font-size:10px;font-style:normal;color:var(--color-ink-muted)}
+.public-operation-route>i{display:none}
+.public-safety-note{margin:12px 0 0;padding:11px 12px;border-left:3px solid var(--color-teal);background:var(--color-surface-teal);font-size:11px;line-height:1.45;color:var(--color-ink-soft)}
+.public-safety-note span{display:block;margin-bottom:4px;font:650 9px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--color-teal-deep)}
+.public-estimator-proof .tool-actions{margin-top:auto;padding-top:12px}
+.public-estimator-preview{align-self:stretch;height:auto;min-height:385px;border-radius:5px}
+.public-estimator-preview .demo-fallback{object-fit:contain;object-position:center top;background:var(--color-screen)}
+
+.public-manifest-pane{display:grid;grid-template-rows:auto 1fr auto;gap:18px;min-height:540px}
+.public-manifest-core{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:14px;align-items:stretch}
+.public-manifest-pane .compact-workflow{min-width:0;margin:0;padding:12px}
+.public-manifest-pane .compact-workflow .workflow-step{min-height:104px;padding:10px 8px}
+.public-manifest-pane .compact-workflow .workflow-step strong{font-size:15px}
+.public-manifest-pane .compact-workflow .workflow-detail{min-height:62px;margin-top:9px;padding:10px 12px}
+.public-human-control{position:relative;display:grid;align-content:center;padding:20px;border:1px solid var(--color-teal);background:var(--color-surface-teal);box-shadow:inset 4px 0 var(--color-teal)}
+.public-human-control::before{content:"05";position:absolute;right:14px;top:10px;font:560 46px/1 Newsreader,serif;color:rgba(22,92,95,.12)}
+.public-human-control>span{font:650 9px "IBM Plex Mono",monospace;letter-spacing:.1em;color:var(--color-teal-deep)}
+.public-human-control>strong{margin:12px 0 7px;font:560 24px/1.05 Newsreader,serif;color:var(--color-ink-strong)}
+.public-human-control>p{margin:0;font-size:11px;line-height:1.45;color:var(--color-ink-muted)}
+.public-manifest-pane .time-shift{grid-template-columns:1fr 90px 1fr;margin:0;padding:12px 0 0}
+.public-manifest-pane .time-shift>div{padding:0 14px}
+.public-manifest-pane .time-shift strong{font-size:28px}
+.public-manifest-pane .time-shift span{display:block;margin-top:2px;font-size:10px}
+
 @media(max-height:820px) and (min-width:900px){
   .public-count-sheet{height:280px;padding:18px;gap:12px}
   .public-lng-chart{height:245px;padding:16px 20px 12px}
   .public-load{height:168px}.public-pair{height:145px}
+  .public-tool-layout{padding-top:40px;padding-bottom:10px}
+  .public-tool-layout .tool-pane{padding:15px 18px}
+  .public-tool-layout .public-tool-header{padding-bottom:12px}
+  .public-tool-header h2{font-size:36px}
+  .public-estimator-pane{min-height:490px;gap:13px 18px}
+  .public-estimator-preview{min-height:330px}
+  .public-safety-note{margin-top:8px;padding:8px 10px}
+  .public-estimator-proof .tool-actions{padding-top:8px}
+  .public-manifest-pane{min-height:475px;gap:13px}
+  .public-manifest-pane .compact-workflow .workflow-step{min-height:86px}
+  .public-manifest-pane .compact-workflow .workflow-detail{min-height:51px;padding:7px 10px}
+  .public-human-control{padding:15px}
+  .public-human-control>strong{font-size:21px}
+  .public-manifest-pane .time-shift{padding-top:8px}
 }
 
 @media(max-width:899px){
@@ -43,4 +102,19 @@ body::after{background-image:none}
   .public-lng-chart{height:280px}
   .public-lng-bars{gap:8px;padding-inline:10px}
   .public-pair i{width:15px}
+  .public-tool-layout{display:block;padding-top:66px}
+  .public-tool-layout .tool-pane{padding:16px;min-height:0}
+  .public-tool-layout .public-tool-header{display:block;padding-bottom:14px}
+  .public-tool-header .eyebrow{margin-bottom:10px}
+  .public-tool-header h2{font-size:36px}
+  .public-tool-intro{margin-top:10px}
+  .public-estimator-pane{display:grid;grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:16px}
+  .public-estimator-pane>.public-tool-header{grid-column:1}
+  .public-estimator-preview{grid-row:2;min-height:320px}
+  .public-estimator-proof{grid-row:3}
+  .public-manifest-pane{display:grid;grid-template-rows:auto auto auto}
+  .public-manifest-core{grid-template-columns:1fr}
+  .public-manifest-pane .compact-workflow .workflow-steps{grid-template-columns:1fr 1fr}
+  .public-manifest-pane .compact-workflow .workflow-step{min-height:88px}
+  .public-human-control{min-height:155px}
 }
